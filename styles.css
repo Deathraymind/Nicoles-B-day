@@ -1,14 +1,28 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+side {
     height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    width: 100%;
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+    position:absolute;
 }
 
-h1 {
-    color: pink; /* This line sets the text color to pink */
-    font-size: 3em;
+.side .title {
+    color: white;
+    font-family: "Rubic", sans-serif;
+    font-size: 8vw;
+    margin: 0px 15vw;
+    width: 70vw;
 }
+
+#left-side {
+    background-color: var(--white);
+    z-index: 2;
+}
+
+#right-side {
+    background-color: var(--pink);
+}
+
+
