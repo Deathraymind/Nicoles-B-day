@@ -24,59 +24,9 @@
     background-image: url('background.jpg'); /* Path to your image */
     background-size: cover; /* Ensure the image covers the entire area */
     background-repeat: no-repeat; /* Prevent the image from repeating */
-    background-posit.side {
-    height: 100vh;
-    width: 100%;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    position: absolute;
-}
-
-.side .title {
-    position: relative;
-    color: rgb(207, 7, 181);
-    font-family: "Lobster", cursive;
-    font-size: 8vw;
-    margin: 0px 15vw;
-    width: 70vw;
-    z-index: 2; /* Ensure text is above the pink box */
-}
-
-#left-side {
-    background-color: pink;
-    z-index: 2;
-}
-
-#right-side {
-    background-image: url('background.jpg'); /* Path to your image */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
-    position: relative; /* Make sure the right side's contents are positioned relative to this */
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-#right-side .title::before {
-    content: '';
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for centering */
-    width: 100%;
-    height: 100%;
-    background-color: pink; /* Pink background behind the text */
-    z-index: 1; /* Place it behind the text */
-    padding: 10px; /* Space between text and box */
-    border-radius: 5px; /* Optional: rounded corners for the box */
-    box-sizing: border-box;
-}ion: center; /* Center the image */
+    background-position: center; /* Center the image */
     color: white; /* Ensure text is visible over the image */
-    border: 5px solid pink; /* Add a pink border around the right side */
-    padding: 20px; /* Add padding inside the border */
-    box-sizing: border-box; /* Include padding and border in the element's width and height */
+    
 }
 
 #left-side .title {
