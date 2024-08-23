@@ -10,16 +10,21 @@ const handleOnMove = e => {
 document.onmousemove = e => handleOnMove(e);
 document.ontouchmove = e => handleOnMove(e.touches[0]);
 
-window.addEventListener("scroll", (event) => {
+window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
     const maxHeight = window.innerHeight;
     const opacity = 1 - (scrollTop / maxHeight);
 
-    // Ensure opacity stays within 0 to 1 range
+    // Adjust opacity of left and right sides
     left.style.opacity = Math.max(opacity, 0);
     right.style.opacity = Math.max(opacity, 0);
-    
-    console.log('The page is scrolling!', event);
+
+    // Move #page2 into view
+    if (scrollTop > maxHeight) {
+        page2.style.opacity = 1;
+    } else {
+        page2.style.opacity = 0;
+    }
 });
 
 
