@@ -5,14 +5,16 @@ let posX = window.innerWidth / 2;
 let posY = window.innerHeight / 2;
 let velocityX = 0; // Initial horizontal velocity
 let velocityY = 0; // Initial vertical velocity
-let gravity = 0.5; // Gravity acceleration
+let gravity = 0.5; // Gravity acceleration for the ball of yarn
 let friction = 0.98; // Friction to reduce velocity over time
 let bounceFactor = 0.7; // Bounce damping factor
 
 let chaserPosX = window.innerWidth / 4;
 let chaserPosY = window.innerHeight / 4;
-let chaserOffsetX = 50; // Offset distance between the chaser and the circle
-let chaserOffsetY = 50;
+let chaserVelocityX = 0;
+let chaserVelocityY = 0;
+let springStrength = 0.05; // How strongly the "rubber band" pulls
+let damping = 0.9; // Reduces oscillations
 
 let isDragging = false;
 let offsetX, offsetY;
@@ -49,15 +51,15 @@ document.addEventListener('mouseup', () => {
     draggable.style.cursor = 'grab';
 });
 
-// Function to apply physics, gravity, and bouncing for both objects
+// Function to apply physics for both the ball of yarn and the cat
 function applyPhysics() {
     if (!isDragging) {
-        // Apply gravity to the circle
+        // Apply gravity to the ball of yarn
         velocityY += gravity;
         posX += velocityX;
         posY += velocityY;
 
-        // Check for collisions with the edges for the circle
+        // Check for collisions with the edges for the ball of yarn
         if (posX + draggable.offsetWidth > window.innerWidth || posX < 0) {
             velocityX = -velocityX * bounceFactor;
             if (posX < 0) posX = 0;
@@ -74,19 +76,27 @@ function applyPhysics() {
         velocityX *= friction;
         velocityY *= friction;
 
-        // Update the position of the draggable circle
+        // Update the position of the ball of yarn
         draggable.style.left = `${posX}px`;
         draggable.style.top = `${posY}px`;
 
-        // Make the chaser move toward the circle with an offset
-        chaserPosX += (velocityX * 0.8); // Chaser's speed relative to the circle's velocity
-        chaserPosY += (velocityY * 0.8);
+        // Calculate the force that pulls the cat towards the yarn
+        let forceX = (posX - chaserPosX) * springStrength;
+        let forceY = (posY - chaserPosY) * springStrength;
 
-        // Apply the offset
-        chaserPosX = posX - chaserOffsetX;
-        chaserPosY = posY - chaserOffsetY;
+        // Update the cat's velocity based on the force
+        chaserVelocityX += forceX;
+        chaserVelocityY += forceY;
 
-        // Update the position of the chaser
+        // Apply damping to reduce oscillations
+        chaserVelocityX *= damping;
+        chaserVelocityY *= damping;
+
+        // Update the cat's position based on its velocity
+        chaserPosX += chaserVelocityX;
+        chaserPosY += chaserVelocityY;
+
+        // Update the position of the cat
         chaser.style.left = `${chaserPosX}px`;
         chaser.style.top = `${chaserPosY}px`;
     }
