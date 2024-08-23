@@ -1,9 +1,9 @@
 const left = document.getElementById("left-side");
+const page2 = document.getElementById("page2");
 
 let isAtZero = false; // Flag to check if the width has reached 0%
 
 const handleOnScroll = e => {
-    // Only adjust width if scrolling down (e.deltaY > 0) and not already at 0%
     if (e.deltaY > 0 && !isAtZero) {
         const scrollAmount = e.deltaY * 0.1; // Adjust this factor to control sensitivity
         const currentWidth = parseFloat(left.style.width) || 100; // Start at 100% if no width is set
@@ -12,15 +12,17 @@ const handleOnScroll = e => {
         // Set the width
         left.style.width = `${newWidth}%`;
 
-        // If the width reaches 0%, set the flag and prevent further changes
+        // If the width reaches 0%, set the flag, change background, and scroll to page 2
         if (newWidth === 0) {
             isAtZero = true; // Prevent further scrolling from decreasing the width
             left.style.backgroundImage = "url('background.jpg')";
             left.style.backgroundColor = "transparent"; // Ensure no background color interferes
+
+            // Scroll to the next section
+            page2.scrollIntoView({ behavior: "smooth" });
         }
     }
 }
 
 document.onwheel = e => handleOnScroll(e);
-
 document.ontouchmove = e => handleOnScroll(e.touches[0]);
