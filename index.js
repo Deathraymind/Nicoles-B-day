@@ -10,13 +10,13 @@ document.onmousemove = e => handleOnMove(e);
 document.ontouchmove = e => handleOnMove(e.touches[0]);
 
 window.addEventListener('scroll', function() {
-    // Use scrollY to get the current vertical scroll position
     const scrollPosition = window.scrollY;
     const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercentage = scrollPosition / scrollHeight;
 
-    // If the scroll percentage is above a certain threshold, transition to page2
-    if (scrollPercentage > 0.9) { // Adjust the threshold as needed
+    if (scrollPercentage > 0.9) {
+        left.style.transform = 'translateX(-100%)';
+        right.style.transform = 'translateX(100%)';
         page2.scrollIntoView({ behavior: 'smooth' });
     }
 });
