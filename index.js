@@ -1,10 +1,11 @@
 const left = document.getElementById("left-side");
+const right = document.getElementById("right-side"); // Added this line
 const page2 = document.getElementById("page2");
 
 const handleOnMove = e => {
     const p = e.clientX / window.innerWidth * 100;
     left.style.width = `${p}%`;
-};
+}s;
 
 document.onmousemove = e => handleOnMove(e);
 document.ontouchmove = e => handleOnMove(e.touches[0]);
