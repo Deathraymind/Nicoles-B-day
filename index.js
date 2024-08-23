@@ -1,5 +1,5 @@
 const left = document.getElementById("left-side");
-const right = document.getElementById("right-side"); // Added this line
+const right = document.getElementById("right-side");
 const page2 = document.getElementById("page2");
 
 const handleOnMove = e => {
@@ -10,16 +10,13 @@ const handleOnMove = e => {
 document.onmousemove = e => handleOnMove(e);
 document.ontouchmove = e => handleOnMove(e.touches[0]);
 
-window.addEventListener('scroll', function() {
-    console.log('Scrolling...'); // Check if this logs in the console
-    const scrollPosition = window.scrollY;
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercentage = scrollPosition / scrollHeight;
+window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const maxHeight = window.innerHeight;
 
-    if (scrollPercentage > 0.9) {
-        console.log('Triggering transition to page2'); // Check if this logs in the console
-        left.style.transform = 'translateX(-100%)';
-        right.style.transform = 'translateX(100%)';
-        page2.scrollIntoView({ behavior: 'smooth' });
+    // Check if the user has scrolled past the first section
+    if (scrollTop >= maxHeight) {
+        // Reveal #page2 by adjusting its position
+        page2.style.top = `${scrollTop}px`;
     }
 });
