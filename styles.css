@@ -21,7 +21,7 @@
 }
 
 #right-side {
-    background-image: url('background.jpg'); /* Path to your image */
+    background-image: url(''); /* Path to your image */
     background-size: cover; /* Ensure the image covers the entire area */
     background-repeat: no-repeat; /* Prevent the image from repeating */
     background-position: center; /* Center the image */
