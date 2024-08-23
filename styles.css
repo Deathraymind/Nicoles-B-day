@@ -8,32 +8,35 @@
 
 .side {
     height: 100vh;
+    width: 100vw;
     display: grid;
     place-items: center;
     overflow: hidden;
     position: absolute;
     top: 0;
+    left: 0;
 }
 
 #left-side {
     background-color: pink;
-    width: 100%; /* Start with 100% width */
     z-index: 3;
-    transition: width 0.5s ease; /* Smooth transition for width changes */
+    transition: width 0.5s ease;
 }
 
 #right-side {
     background-color: white;
-    width: 100%; /* Start with 100% width */
     z-index: 2;
-    transition: width 0.5s ease; /* Smooth transition for width changes */
+    transition: width 0.5s ease;
 }
 
 #page2 {
     background-color: pink;
-    width: 100%; /* Start with 100% width */
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 100vh; /* Positioned directly below the viewport */
+    left: 0;
     z-index: 1;
-    transition: width 0.5s ease; /* Smooth transition for width changes */
 }
 
 #left-side .title {
