@@ -23,3 +23,7 @@
 #right-side {
     background-color: var(--pink); /* Make sure --pink is defined somewhere in your CSS */
 }
+
+#left-side .title {
+    color: pink;
+}
