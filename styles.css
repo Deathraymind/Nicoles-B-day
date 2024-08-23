@@ -21,7 +21,11 @@
 }
 
 #right-side {
-    background-color: pink; /* Pink background */
+    background-image: url('background.jpg'); /* Path to your image */
+    background-size: cover; /* Ensure the image covers the entire area */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image */
+    color: white; /* Ensure text is visible over the image */
 }
 
 #left-side .title {
