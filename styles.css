@@ -1,28 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Example</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- First Section -->
-    <div id="left-side" class="side">
-        <h2 class="title">Happy Birthday, Nicole</h2>
-    </div>
+.side .title {
+    color: rgb(207, 7, 181);
+    font-family: "Lobster", cursive;
+    font-size: 8vw;
+    margin: 0px 15vw;
+    width: 70vw;
+}
 
-    <div id="right-side" class="side">
-        <h2 class="title">Happy Birthday, Nicole</h2>
-        <a href="#page2" class="scroll-button">Go to Page 2</a>
-        
-    </div>
+.side {
+    height: 100vh;
+    width: 100%; /* Initially 100% width */
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    position: absolute;
+}
 
-    <!-- Second Section -->
-    <section id="page2" class="page">
-        <p>Here is a cat for you to pet!</p>
-    </section>
+#left-side {
+    background-color: pink;
+    z-index: 2;
+    transition: width 0.5s ease; /* Smooth transition for width changes */
+}
 
-    <script src="index.js"></script>
-</body>
-</html>
+#right-side {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+}
+
+#left-side .title {
+    color: white;
+}
+
+#right-side .title {
+    color: white;
+}
+
+#page2 {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: pink;
+    z-index: 1;
+}
+
+#page2 p {
+    font-size: 2rem;
+    color: white;
+}
+
+.scroll-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-button:hover {
+    background-color: #555;
+}
