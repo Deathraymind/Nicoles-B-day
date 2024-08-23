@@ -12,7 +12,8 @@
     display: grid;
     place-items: center;
     overflow: hidden;
-    position: absolute;
+    position: fixed; /* Keep it fixed while scrolling */
+    top: 0; /* Ensure it stays at the top */
 }
 
 #left-side {
@@ -27,14 +28,8 @@
     background-repeat: no-repeat;
     background-position: center;
     color: white;
-}
-
-#left-side .title {
-    color: white;
-}
-
-#right-side .title {
-    color: white;
+    display: none; /* Initially hidden */
+    z-index: 3;
 }
 
 #page2 {
@@ -43,9 +38,25 @@
     place-items: center;
     background-color: pink;
     z-index: 1;
+    position: relative; /* Normal document flow */
 }
 
 #page2 p {
     font-size: 2rem;
     color: white;
+}
+
+.scroll-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-button:hover {
+    background-color: #555;
 }
