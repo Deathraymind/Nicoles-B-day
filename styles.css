@@ -26,6 +26,9 @@
     background-repeat: no-repeat; /* Prevent the image from repeating */
     background-position: center; /* Center the image */
     color: white; /* Ensure text is visible over the image */
+    border: 5px solid pink; /* Add a pink border around the right side */
+    padding: 20px; /* Add padding inside the border */
+    box-sizing: border-box; /* Include padding and border in the element's width and height */
 }
 
 #left-side .title {
