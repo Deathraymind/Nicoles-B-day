@@ -3,6 +3,7 @@ const right = document.getElementById("right-side");
 const page2 = document.getElementById("page2");
 
 let isAtZero = false; // Flag to check if the width has reached 0%
+let rightSideRevealed = false; // Flag to check if the right-side has been revealed
 
 const handleOnScroll = e => {
     if (e.deltaY > 0 && !isAtZero) {
@@ -19,14 +20,18 @@ const handleOnScroll = e => {
             left.style.display = "none"; // Hide the left-side after animation
             right.style.display = "grid"; // Reveal the right-side
             right.style.width = "100%"; // Ensure right-side takes full width
+            rightSideRevealed = true; // Set flag indicating right-side is revealed
         }
     }
 }
 
+// Attach the scroll event handler to the document
 document.onwheel = e => handleOnScroll(e);
 document.ontouchmove = e => handleOnScroll(e.touches[0]);
 
-// Allow the normal scroll to page2 when user scrolls after seeing the right-side
-right.addEventListener('wheel', () => {
-    page2.scrollIntoView({ behavior: "smooth" });
+// Allow the normal scroll to page2 only if right-side is revealed and the user tries to scroll again
+right.addEventListener('wheel', e => {
+    if (rightSideRevealed) {
+        page2.scrollIntoView({ behavior: "smooth" });
+    }
 });
