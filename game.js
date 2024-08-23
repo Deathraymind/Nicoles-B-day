@@ -2,14 +2,15 @@ const draggable = document.getElementById('draggable');
 
 let posX = window.innerWidth / 2;
 let posY = window.innerHeight / 2;
-let velocityX = 2; // Horizontal velocity
-let velocityY = 0; // Vertical velocity
+let velocityX = 0; // Initial horizontal velocity
+let velocityY = 0; // Initial vertical velocity
 let gravity = 0.5; // Gravity acceleration
 let friction = 0.98; // Friction to reduce velocity over time
 let bounceFactor = 0.7; // Bounce damping factor
 
 let isDragging = false;
 let offsetX, offsetY;
+let lastMouseX, lastMouseY; // To calculate the velocity based on drag
 
 draggable.addEventListener('mousedown', (e) => {
     isDragging = true;
@@ -18,6 +19,8 @@ draggable.addEventListener('mousedown', (e) => {
     draggable.style.cursor = 'grabbing';
     velocityX = 0; // Stop current motion on grab
     velocityY = 0;
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
 });
 
 document.addEventListener('mousemove', (e) => {
@@ -26,6 +29,12 @@ document.addEventListener('mousemove', (e) => {
         posY = e.clientY - offsetY;
         draggable.style.left = `${posX}px`;
         draggable.style.top = `${posY}px`;
+
+        // Calculate the velocity based on mouse movement
+        velocityX = e.clientX - lastMouseX;
+        velocityY = e.clientY - lastMouseY;
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
     }
 });
 
