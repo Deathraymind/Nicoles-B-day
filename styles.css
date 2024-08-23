@@ -72,4 +72,15 @@
 }
 
 
+.target {
+    width: 150px;
+    height: 150px;
+    background-color: green;
+    position: absolute;
+    bottom: 50px; /* Positioned near the bottom of the page */
+    right: 50px; /* Positioned near the right of the page */
+    z-index: 1; /* Ensure it's above the background but below the cat */
+    border-radius: 10px;
+}
+
 

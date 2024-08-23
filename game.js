@@ -1,5 +1,6 @@
 const draggable = document.getElementById('draggable');
 const chaser = document.getElementById('chaser');
+const target = document.getElementById('target');
 
 let posX = window.innerWidth / 2;
 let posY = window.innerHeight / 2;
@@ -99,6 +100,15 @@ function applyPhysics() {
         // Update the position of the cat
         chaser.style.left = `${chaserPosX}px`;
         chaser.style.top = `${chaserPosY}px`;
+
+        // Check for collision with the target box
+        if (chaserPosX < target.offsetLeft + target.offsetWidth &&
+            chaserPosX + chaser.offsetWidth > target.offsetLeft &&
+            chaserPosY < target.offsetTop + target.offsetHeight &&
+            chaserPosY + chaser.offsetHeight > target.offsetTop) {
+                // Redirect to a new page when the cat enters the target box
+                window.location.href = "pagenerd.html";
+        }
     }
 
     requestAnimationFrame(applyPhysics); // Continue the physics loop
