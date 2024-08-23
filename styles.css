@@ -12,21 +12,21 @@
 #left-side {
     background-color: pink;
     z-index: 3;
-    transition: opacity 0.5s ease; /* Smooth transition for opacity changes */
+    transition: width 0.5s ease;
 }
 
 #right-side {
     background-color: white;
     z-index: 2;
-    transition: opacity 0.5s ease; /* Smooth transition for opacity changes */
+    transition: width 0.5s ease;
 }
 
 #page2 {
     background-color: pink;
-    z-index: 1;
-    top: 100vh; /* Position below the viewport initially */
-    position: absolute;
-    transition: opacity 0.5s ease; /* Smooth transition for opacity changes */
+    width: 100vw;  /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    position: relative; /* Positioned naturally below the other sections */
+    z-index: 1; /* Lower z-index so it stays below the other elements */
 }
 
 #left-side .title {

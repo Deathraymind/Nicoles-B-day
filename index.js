@@ -1,31 +1,38 @@
-const left = document.getElementById("left-side");
-const right = document.getElementById("right-side"); // Added this line
-const page2 = document.getElementById("page2");
+.side {
+    width: 100vw;  /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    position: absolute; /* Absolute positioning for stacking */
+    top: 0;
+    left: 0;
+}
 
-const handleOnMove = e => {
-    const p = e.clientX / window.innerWidth * 100;
-    left.style.width = `${p}%`;
-};
+#left-side {
+    background-color: pink;
+    z-index: 3;
+    transition: width 0.5s ease;
+}
 
-document.onmousemove = e => handleOnMove(e);
-document.ontouchmove = e => handleOnMove(e.touches[0]);
+#right-side {
+    background-color: white;
+    z-index: 2;
+    transition: width 0.5s ease;
+}
 
-window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const maxHeight = window.innerHeight;
-    const opacity = 1 - (scrollTop / maxHeight);
+#page2 {
+    background-color: pink;
+    width: 100vw;  /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    position: relative; /* Positioned naturally below the other sections */
+    z-index: 1; /* Lower z-index so it stays below the other elements */
+}
 
-    // Adjust opacity of left and right sides
-    left.style.opacity = Math.max(opacity, 0);
-    right.style.opacity = Math.max(opacity, 0);
+#left-side .title {
+    color: white;
+}
 
-    // Move #page2 into view
-    if (scrollTop > maxHeight) {
-        page2.style.opacity = 1;
-    } else {
-        page2.style.opacity = 0;
-    }
-});
-
-
-
+#right-side .title {
+    color: pink;
+}
