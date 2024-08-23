@@ -57,5 +57,7 @@
     transform: translate(-50%, -50%);
     cursor: grab;
     border-radius: 50%;
+    z-index: 5; /* Ensure it's on top of other elements */
 }
+
 
