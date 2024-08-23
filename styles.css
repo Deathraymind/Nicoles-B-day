@@ -36,3 +36,13 @@
 #right-side .title {
     color: white; /* Black text on pink background for better contrast */
 }
+
+
+#page2 {
+    background-color: pink; /* White background */
+    z-index: 2;
+}
+
+#page2 .title {
+    color: white; /* Black text on pink background for better contrast */
+}
