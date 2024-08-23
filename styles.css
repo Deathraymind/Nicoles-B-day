@@ -1,64 +1,28 @@
-.side .title {
-    color: rgb(207, 7, 181);
-    font-family: "Lobster", cursive;
-    font-size: 8vw;
-    margin: 0px 15vw;
-    width: 70vw;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- First Section -->
+    <div id="left-side" class="side">
+        <h2 class="title">Happy Birthday, Nicole</h2>
+    </div>
 
-.side {
-    height: 100vh;
-    width: 100%;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    position: absolute;
-}
+    <div id="right-side" class="side">
+        <h2 class="title">Happy Birthday, Nicole</h2>
+        <a href="#page2" class="scroll-button">Go to Page 2</a>
+        
+    </div>
 
-#left-side {
-    background-color: pink; /* White background */
-    z-index: 2;
-}
+    <!-- Second Section -->
+    <section id="page2" class="page">
+        <p>Here is a cat for you to pet!</p>
+    </section>
 
-#right-side {
-    background-image: url('background.jpg'); /* Path to your image */
-    background-size: cover; /* Ensure the image covers the entire area */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    background-position: center; /* Center the image */
-    color: white; /* Ensure text is visible over the image */
-    
-}
-
-#left-side .title {
-    color: white; /* Pink text on white background */
-}
-
-#right-side .title {
-    color: white; /* Black text on pink background for better contrast */
-}
-
-
-#page2 {
-    background-color: pink; /* White background */
-    z-index: 2;
-}
-
-#page2 .title {
-    color: white; /* Black text on pink background for better contrast */
-}
-
-
-.scroll-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-}
-
-.scroll-button:hover {
-    background-color: #555;
-}
+    <script src="index.js"></script>
+</body>
+</html>
