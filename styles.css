@@ -46,3 +46,16 @@
 #right-side .title {
     color: pink;
 }
+
+.draggable {
+    width: 100px;
+    height: 100px;
+    background-color: #ff6347;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+    border-radius: 50%;
+}
+
