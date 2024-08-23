@@ -9,15 +9,15 @@ const handleOnScroll = e => {
         const currentWidth = parseFloat(left.style.width) || 100; // Start at 100% if no width is set
         const newWidth = Math.max(currentWidth - scrollAmount, 0); // Decrease width, keep between 0% and 100%
 
-        // Set the width
+        // Set the width for left-side
         left.style.width = `${newWidth}%`;
 
-        // If the width reaches 0%, set the flag, change background, and reveal the right-side
+        // Set the width for right-side as the inverse of left-side
+        right.style.width = `${100 - newWidth}%`;
+
+        // If the width reaches 0%, set the flag
         if (newWidth === 0) {
             isAtZero = true; // Prevent further scrolling from decreasing the width
-            left.style.display = "none"; // Hide the left-side after animation
-            right.style.display = "grid"; // Reveal the right-side
-            right.style.width = "100%"; // Ensure right-side takes full width
         }
     }
 }

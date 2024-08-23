@@ -8,15 +8,16 @@
 
 .side {
     height: 100vh;
-    width: 100%;
     display: grid;
     place-items: center;
     overflow: hidden;
     position: absolute;
+    top: 0;
 }
 
 #left-side {
     background-color: pink;
+    width: 100%; /* Start with 100% width */
     z-index: 2;
     transition: width 0.5s ease; /* Smooth transition for width changes */
 }
@@ -27,6 +28,7 @@
     background-repeat: no-repeat;
     background-position: center;
     color: white;
-    display: none; /* Initially hidden */
-    z-index: 3;
+    width: 0%; /* Start with 0% width */
+    z-index: 1;
+    transition: width 0.5s ease; /* Smooth transition for width changes */
 }
