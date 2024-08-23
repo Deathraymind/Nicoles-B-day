@@ -1,38 +1,25 @@
-.side {
-    width: 100vw;  /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    position: absolute; /* Absolute positioning for stacking */
-    top: 0;
-    left: 0;
-}
+const left = document.getElementById("left-side");
+const right = document.getElementById("right-side"); // Added this line
+const page2 = document.getElementById("page2");
 
-#left-side {
-    background-color: pink;
-    z-index: 3;
-    transition: width 0.5s ease;
-}
+const handleOnMove = e => {
+    const p = e.clientX / window.innerWidth * 100;
+    left.style.width = `${p}%`;
+};
 
-#right-side {
-    background-color: white;
-    z-index: 2;
-    transition: width 0.5s ease;
-}
+document.onmousemove = e => handleOnMove(e);
+document.ontouchmove = e => handleOnMove(e.touches[0]);
 
-#page2 {
-    background-color: pink;
-    width: 100vw;  /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
-    position: relative; /* Positioned naturally below the other sections */
-    z-index: 1; /* Lower z-index so it stays below the other elements */
-}
+window.addEventListener('scroll', function() {
+    console.log('Scrolling...'); // Check if this logs in the console
+    const scrollPosition = window.scrollY;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercentage = scrollPosition / scrollHeight;
 
-#left-side .title {
-    color: white;
-}
-
-#right-side .title {
-    color: pink;
-}
+    if (scrollPercentage > 0.9) {
+        console.log('Triggering transition to page2'); // Check if this logs in the console
+        left.style.transform = 'translateX(-100%)';
+        right.style.transform = 'translateX(100%)';
+        page2.scrollIntoView({ behavior: 'smooth' });
+    }
+});
