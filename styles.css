@@ -16,7 +16,7 @@
 }
 
 #left-side {
-    background-color: pink; /* White background */
+    background-color: white; /* White background */
     z-index: 2;
 }
 
@@ -29,7 +29,7 @@
 }
 
 #left-side .title {
-    color: white; /* Pink text on white background */
+    color: pink; /* Pink text on white background */
 }
 
 #right-side .title {
