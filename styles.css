@@ -23,12 +23,15 @@
 }
 
 #right-side {
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
-    width: 0%; /* Start with 0% width */
-    z-index: 1;
+    background-color: white;
+    width: 100%; /* Start with 100% width */
     transition: width 0.5s ease; /* Smooth transition for width changes */
+}
+
+#left-side .title {
+    color: white
+}
+
+#right-side .title {
+    color: pink;
 }
