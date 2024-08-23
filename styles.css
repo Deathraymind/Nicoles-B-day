@@ -1,28 +1,25 @@
-side {
+.side {
     height: 100vh;
     width: 100%;
     display: grid;
     place-items: center;
-
     overflow: hidden;
-    position:absolute;
+    position: absolute;
 }
 
 .side .title {
     color: white;
-    font-family: "Rubic", sans-serif;
+    font-family: "Rubik", sans-serif; /* Ensure the font name is correct */
     font-size: 8vw;
     margin: 0px 15vw;
     width: 70vw;
 }
 
 #left-side {
-    background-color: var(--white);
+    background-color: var(--white); /* Make sure --white is defined somewhere in your CSS */
     z-index: 2;
 }
 
 #right-side {
-    background-color: var(--pink);
+    background-color: var(--pink); /* Make sure --pink is defined somewhere in your CSS */
 }
-
-
