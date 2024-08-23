@@ -16,12 +16,12 @@
 }
 
 #left-side {
-    background-color: var(--white); /* Make sure --white is defined somewhere in your CSS */
+    background-color: white; /* Make sure --white is defined somewhere in your CSS */
     z-index: 2;
 }
 
 #right-side {
-    background-color: var(--pink); /* Make sure --pink is defined somewhere in your CSS */
+    background-color: pink; /* Make sure --pink is defined somewhere in your CSS */
 }
 
 #left-side .title {
