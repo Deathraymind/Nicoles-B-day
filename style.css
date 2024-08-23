@@ -9,6 +9,6 @@ body {
 }
 
 h1 {
-    color: #ff69b4;
+    color: pink; /* This line sets the text color to pink */
     font-size: 3em;
 }
