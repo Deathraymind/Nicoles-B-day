@@ -9,27 +9,25 @@
 
 .side .title {
     color: rgb(207, 7, 181);
-    font-family: "Rubik", sans-serif; /* Ensure the font name is correct */
+    font-family: "Rubik", sans-serif;
     font-size: 8vw;
     margin: 0px 15vw;
     width: 70vw;
 }
 
 #left-side {
-    background-color: white; /* Make sure --white is defined somewhere in your CSS */
+    background-color: white; /* White background */
     z-index: 2;
 }
 
 #right-side {
-    background-color: pink; /* Make sure --pink is defined somewhere in your CSS */
+    background-color: pink; /* Pink background */
 }
 
 #left-side .title {
-    color: pink;
+    color: pink; /* Pink text on white background */
 }
 
 #right-side .title {
-    color: white;
+    color: black; /* Black text on pink background for better contrast */
 }
-
-
