@@ -1,36 +1,43 @@
+.side .title {
+    color: rgb(207, 7, 181);
+    font-family: "Lobster", cursive;
+    font-size: 8vw;
+    margin: 0px 15vw;
+    width: 70vw;
+}
+
 .side {
-    width: 100vw;  /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
+    height: 100vh;
     display: grid;
     place-items: center;
     overflow: hidden;
-    position: absolute; /* Absolute positioning for stacking */
+    position: absolute;
     top: 0;
-    left: 0;
 }
 
 #left-side {
     background-color: pink;
+    width: 100%; /* Start with 100% width */
     z-index: 3;
-    transition: width 0.5s ease;
+    transition: width 0.5s ease; /* Smooth transition for width changes */
 }
 
 #right-side {
     background-color: white;
+    width: 100%; /* Start with 100% width */
     z-index: 2;
-    transition: width 0.5s ease;
+    transition: width 0.5s ease; /* Smooth transition for width changes */
 }
 
 #page2 {
     background-color: pink;
-    width: 100vw;  /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
-    position: relative; /* Positioned naturally below the other sections */
-    z-index: 1; /* Lower z-index so it stays below the other elements */
+    width: 100%; /* Start with 100% width */
+    z-index: 1;
+    transition: width 0.5s ease; /* Smooth transition for width changes */
 }
 
 #left-side .title {
-    color: white;
+    color: white
 }
 
 #right-side .title {
