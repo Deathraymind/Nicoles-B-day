@@ -9,7 +9,7 @@ let posY = window.innerHeight / 2;
 let velocityX = 0; // Initial horizontal velocity
 let velocityY = 0; // Initial vertical velocity
 let gravity = 0.5; // Gravity acceleration for the ball of yarn
-let friction = 0.9; // Increased friction to reduce velocity over time
+let friction = 0.96; // Friction to reduce velocity over time
 let bounceFactor = 0.4; // Bounce damping factor
 
 let chaserPosX = window.innerWidth / 4;
@@ -118,7 +118,7 @@ function applyPhysics() {
             if (posX < rightLedge.offsetLeft) {
                 posX = rightLedge.offsetLeft - draggable.offsetWidth;
             } else if (posX + draggable.offsetWidth > rightLedge.offsetLeft + rightLedge.offsetWidth) {
-                posX = rightLedge.offsetLeft + rightRidge.offsetWidth;
+                posX = rightLedge.offsetLeft + rightLedge.offsetWidth;
             }
             if (posY < rightLedge.offsetTop) {
                 posY = rightLedge.offsetTop - draggable.offsetHeight;
@@ -130,10 +130,6 @@ function applyPhysics() {
         // Apply friction
         velocityX *= friction;
         velocityY *= friction;
-
-        // Additional velocity reduction
-        velocityX *= 0.7; // Further reduce horizontal velocity
-        velocityY *= 1; // Further reduce vertical velocity
 
         // Update the position of the ball of yarn
         draggable.style.left = `${posX}px`;
