@@ -63,3 +63,37 @@ circle.addEventListener('click', () => {
 });
 
 showCircle();
+
+
+let startTime = Date.now();
+let misclicks = 0;
+
+function updateTime() {
+    const timeElapsed = Math.floor((Date.now() - startTime) / 1000);
+    document.getElementById('time').innerText = timeElapsed;
+}
+
+function incrementMisclicks() {
+    misclicks++;
+    document.getElementById('misclick-count').innerText = misclicks;
+}
+
+function setupCircle() {
+    const circle = document.getElementById('circle');
+    circle.addEventListener('click', () => {
+        // Logic when circle is clicked (e.g., move the circle to a new random location)
+    });
+
+    document.getElementById('game-area').addEventListener('click', (event) => {
+        if (event.target !== circle) {
+            incrementMisclicks();
+        }
+    });
+}
+
+function startGame() {
+    setInterval(updateTime, 1000); // Update the timer every second
+    setupCircle();
+}
+
+document.addEventListener('DOMContentLoaded', startGame);
