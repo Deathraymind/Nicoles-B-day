@@ -110,7 +110,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-end; /* Align the doors to the bottom */
-    gap: 40px; /* Increase the space between the doors */
+    gap: 300px; /* Increase the space between the doors */
     width: 100%; /* Make sure the container spans the full width */
     position: absolute; /* Position the container at the bottom */
     bottom: 20px; /* Space between the doors and the bottom of the screen */
