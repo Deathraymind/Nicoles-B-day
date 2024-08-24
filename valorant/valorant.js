@@ -5,7 +5,7 @@ let misclicks = 0;
 
 const gameArea = document.getElementById('game-area');
 const circle = document.getElementById('circle');
-const timeDisplay = document.getElementById('time');
+const highScoreDisplay = document.getElementById('high-score');
 const misclickCount = document.getElementById('misclick-count');
 
 // Array of image paths (1-14)
@@ -54,8 +54,19 @@ function showCircle() {
         endTime = Date.now();
         circle.style.display = 'none';
         const timeTaken = (endTime - startTime) / 1000;
-        timeDisplay.textContent = timeTaken.toFixed(2);
+        updateHighScore(timeTaken);
         alert(`You completed the challenge in ${timeTaken.toFixed(2)} seconds!`);
+    }
+}
+
+function updateHighScore(timeTaken) {
+    let highScore = localStorage.getItem('highScore');
+    if (!highScore || timeTaken < highScore) {
+        localStorage.setItem('highScore', timeTaken.toFixed(2));
+        highScoreDisplay.textContent = timeTaken.toFixed(2);
+        alert(`New High Score: ${timeTaken.toFixed(2)} seconds!`);
+    } else {
+        highScoreDisplay.textContent = highScore;
     }
 }
 
@@ -76,13 +87,14 @@ function incrementMisclicks() {
     misclickCount.textContent = misclicks;
 }
 
-function updateTime() {
-    const timeElapsed = Math.floor((Date.now() - startTime) / 1000);
-    timeDisplay.innerText = timeElapsed;
-}
-
 function startGame() {
-    setInterval(updateTime, 1000); // Update the timer every second
+    // Display the current high score when the game starts
+    let highScore = localStorage.getItem('highScore');
+    if (highScore) {
+        highScoreDisplay.textContent = highScore;
+    } else {
+        highScoreDisplay.textContent = '0.00';
+    }
     showCircle();
 }
 
