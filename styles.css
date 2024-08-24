@@ -142,8 +142,6 @@
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
 }
 
-
-
 .birthday-container {
     display: flex;
     justify-content: center;
@@ -151,8 +149,8 @@
     gap: 300px; /* Increase the space between the doors */
     width: 100%; /* Make sure the container spans the full width */
     position: absolute; /* Position the container at the bottom */
-    bottom: 250px; /* Space between the doors and the bottom of the screen */
-    z-index: 10;
+    bottom: 100px; /* Space between the birthday elements and the bottom of the screen */
+    z-index: 10; /* Higher z-index to ensure both are clickable */
 }
 
 .birthday {
@@ -177,4 +175,3 @@
     transform: translateY(-15px);
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
 }
-
