@@ -10,7 +10,7 @@ let velocityX = 0; // Initial horizontal velocity
 let velocityY = 0; // Initial vertical velocity
 let gravity = 0.5; // Gravity acceleration for the ball of yarn
 let friction = 0.98; // Friction to reduce velocity over time
-let bounceFactor = 0.7; // Bounce damping factor
+let bounceFactor = 0.4; // Bounce damping factor
 
 let chaserPosX = window.innerWidth / 4;
 let chaserPosY = window.innerHeight / 4;
