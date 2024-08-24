@@ -105,22 +105,38 @@ function applyPhysics() {
             velocityY = -velocityY * bounceFactor;
         }
 
-        // Check for collision with the left ledge (for the yarn)
-        if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, leftLedge.offsetLeft, leftLedge.offsetTop, leftLedge.offsetWidth, leftLedge.offsetHeight)) {
-            if (posX < leftLedge.offsetLeft) {
-                posX = leftLedge.offsetLeft - draggable.offsetWidth;
-            } else if (posX + draggable.offsetWidth > leftLedge.offsetLeft + leftLedge.offsetWidth) {
-                posX = leftLedge.offsetLeft + leftLedge.offsetWidth;
-            }
-            if (posY < leftLedge.offsetTop) {
-                posY = leftLedge.offsetTop - draggable.offsetHeight;
-            } else if (posY + draggable.offsetHeight > leftLedge.offsetTop + leftLedge.offsetHeight) {
-                posY = leftLedge.offsetTop + leftLedge.offsetHeight;
-            }
-            velocityX = -velocityX * bounceFactor;
-            velocityY = -velocityY * bounceFactor;
-        }
+        let isOnLeftLedge = false;
+let leftLedgeTimer;
 
+// Check for collision with the left ledge (for the yarn)
+if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, leftLedge.offsetLeft, leftLedge.offsetTop, leftLedge.offsetWidth, leftLedge.offsetHeight)) {
+    if (posX < leftLedge.offsetLeft) {
+        posX = leftLedge.offsetLeft - draggable.offsetWidth;
+    } else if (posX + draggable.offsetWidth > leftLedge.offsetLeft + leftLedge.offsetWidth) {
+        posX = leftLedge.offsetLeft + leftLedge.offsetWidth;
+    }
+    if (posY < leftLedge.offsetTop) {
+        posY = leftLedge.offsetTop - draggable.offsetHeight;
+    } else if (posY + draggable.offsetHeight > leftLedge.offsetTop + leftLedge.offsetHeight) {
+        posY = leftLedge.offsetTop + leftLedge.offsetHeight;
+    }
+    velocityX = -velocityX * bounceFactor;
+    velocityY = -velocityY * bounceFactor;
+
+    // Start the timer if the yarn is on the left ledge
+    if (!isOnLeftLedge) {
+        isOnLeftLedge = true;
+        leftLedgeTimer = setTimeout(() => {
+            window.location.href = 'pages/valorant.html';
+        }, 3000); // 3 seconds
+    }
+} else {
+    // Reset the timer if the yarn leaves the left ledge
+    if (isOnLeftLedge) {
+        isOnLeftLedge = false;
+        clearTimeout(leftLedgeTimer);
+    }
+}
         // Check for collision with the right ledge (for the yarn)
         if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, rightLedge.offsetLeft, rightLedge.offsetTop, rightLedge.offsetWidth, rightLedge.offsetHeight)) {
             if (posX < rightLedge.offsetLeft) {
