@@ -1,11 +1,89 @@
+.side .title {
+    color: rgb(207, 7, 181);
+    font-family: "Lobster", cursive;
+    font-size: 8vw;
+    margin: 0px 15vw;
+    width: 70vw;
+}
+
+.side {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#left-side {
+    background-color: pink;
+    z-index: 3;
+    transition: width 0.5s ease;
+}
+
+#right-side {
+    background-color: white;
+    z-index: 2;
+    transition: width 0.5s ease;
+}
+
+#page2 {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 100vh; /* Positioned directly below the viewport */
+    left: 0;
+    z-index: 1;
+    background-image: url('background.jpg'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+#page2 .title {
+    color: white;
+    font-size: 3vw;
+}
+
+.draggable {
+    width: 100px;
+    height: 100px;
+    background-image: url('yarn.png'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire circle */
+    background-position: center; /* Center the background image */
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+    border-radius: 50%;
+    z-index: 5; /* Ensure it's on top of other elements */
+}
+
+.chaser {
+    width: 100px;
+    height: 100px;
+    background-image: url('cat.png'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire box */
+    background-position: center; /* Center the background image */
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    border-radius: 10px; /* Square shape with slight rounded corners */
+    z-index: 1; /* Ensure it's above the background but below the circle */
+}
+
+/* Door Container */
 .door-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 800px; /* Space between the doors */
+    gap: 300px; /* Space between the doors */
     width: 100%;
     position: absolute;
-    bottom: 50px; /* Position the doors at the very bottom */
+    bottom: 150px; /* Position the doors above the bottom */
     z-index: 10; /* Ensure doors are above other content */
 }
 
@@ -25,7 +103,6 @@
     font-size: 24px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
-    pointer-events: auto; /* Ensure pointer events are enabled */
 }
 
 .door:hover {
@@ -33,11 +110,12 @@
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Birthday Container */
 .birthday-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 300px; /* Increase the space between the doors */
+    gap: 300px;
     width: 100%;
     position: absolute;
     top: 50px; /* Position the birthday element near the top */
@@ -48,7 +126,7 @@
     width: 500px;
     height: 500px;
     background-image: url('birthday.png'); /* Set the background image */
-    background-size: cover; /* Ensure the image covers the entire door */
+    background-size: cover; /* Ensure the image covers the entire element */
     background-position: center; /* Center the background image */
     color: white;
     display: flex;
@@ -60,7 +138,6 @@
     font-size: 24px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
-    pointer-events: auto; /* Ensure pointer events are enabled */
 }
 
 .birthday:hover {
