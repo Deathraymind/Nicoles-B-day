@@ -22,7 +22,7 @@ window.addEventListener("scroll", () => {
 });
 
 document.getElementById('door1').addEventListener('click', function() {
-    window.location.href = 'vaolrant/valorant.html'; // Redirect to a different page or do something else
+    window.location.href = 'valorant/valorant.html'; // Redirect to a different page or do something else
 });
 
 document.getElementById('door2').addEventListener('click', function() {
