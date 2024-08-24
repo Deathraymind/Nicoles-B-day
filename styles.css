@@ -106,10 +106,13 @@
 
 
 
+
+
 .door-container {
     display: flex;
     justify-content: center;
     gap: 20px; /* Space between the doors */
+    margin-bottom: 20px; /* Distance from the bottom of the screen */
 }
 
 .door {
@@ -132,3 +135,4 @@
     transform: translateY(-5px);
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
 }
+
