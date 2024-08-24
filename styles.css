@@ -1,8 +1,6 @@
-/* Title Styling for All Pages */
-.side .title, 
-#page2 .title {
-    color: rgb(207, 7, 181); /* Ensures title color consistency */
-    font-family: "Lobster", cursive; /* Ensure Lobster font is correctly imported */
+.side .title {
+    color: rgb(207, 7, 181);
+    font-family: "Lobster", cursive;
     font-size: 8vw;
     margin: 0px 15vw;
     width: 70vw;
@@ -31,52 +29,50 @@
     transition: width 0.5s ease;
 }
 
-/* Page 2 Styling */
 #page2 {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    top: 100vh;
+    top: 100vh; /* Positioned directly below the viewport */
     left: 0;
     z-index: 1;
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url('background.jpg'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
 #page2 .title {
-    color: white; /* Specific to page2 title */
+    color: white;
     font-size: 3vw;
 }
 
-/* Draggable and Chaser Elements */
 .draggable {
     width: 100px;
     height: 100px;
-    background-image: url('yarn.png');
-    background-size: cover;
-    background-position: center;
+    background-image: url('yarn.png'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire circle */
+    background-position: center; /* Center the background image */
     position: absolute;
     top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     cursor: grab;
     border-radius: 50%;
-    z-index: 5;
+    z-index: 5; /* Ensure it's on top of other elements */
 }
 
 .chaser {
     width: 100px;
     height: 100px;
-    background-image: url('cat.png');
-    background-size: cover;
-    background-position: center;
+    background-image: url('cat.png'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire box */
+    background-position: center; /* Center the background image */
     position: absolute;
     top: 20%;
     left: 20%;
-    border-radius: 10px;
-    z-index: 1;
+    border-radius: 10px; /* Square shape with slight rounded corners */
+    z-index: 1; /* Ensure it's above the background but below the circle */
 }
 
 /* Door Container */
@@ -84,19 +80,19 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 300px;
+    gap: 300px; /* Space between the doors */
     width: 100%;
     position: absolute;
-    bottom: 150px;
-    z-index: 10;
+    bottom: 150px; /* Position the doors above the bottom */
+    z-index: 10; /* Ensure doors are above other content */
 }
 
 .door {
     width: 200px;
     height: 300px;
-    background-image: url('door.png');
-    background-size: cover;
-    background-position: center;
+    background-image: url('door.png'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire door */
+    background-position: center; /* Center the background image */
     color: white;
     display: flex;
     justify-content: center;
@@ -122,16 +118,16 @@
     gap: 300px;
     width: 100%;
     position: absolute;
-    top: 50px;
-    z-index: 15;
+    top: 50px; /* Position the birthday element near the top */
+    z-index: 15; /* Higher z-index to ensure both are clickable */
 }
 
 .birthday {
     width: 500px;
     height: 500px;
-    background-image: url('birthday.png');
-    background-size: cover;
-    background-position: center;
+    background-image: url('birthday.png'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire element */
+    background-position: center; /* Center the background image */
     color: white;
     display: flex;
     justify-content: center;
