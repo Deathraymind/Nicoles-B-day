@@ -29,6 +29,10 @@ document.getElementById('door2').addEventListener('click', function() {
     window.location.href = 'nerdshit/nerdshit.html'; // Redirect to the specified URL
 });
 
+document.getElementById('birthday1').addEventListener('click', function() {
+    window.location.href = 'happybirthday/happybirthday.html'; // Redirect to the specified URL
+});
+
 // Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Get the chaser element and the audio element
