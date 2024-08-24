@@ -1,12 +1,14 @@
 let totalCircles = 15;
 let circlesClicked = 0;
 let startTime, endTime;
+let misclicks = 0;
 
 const gameArea = document.getElementById('game-area');
 const circle = document.getElementById('circle');
 const timeDisplay = document.getElementById('time');
+const misclickCount = document.getElementById('misclick-count');
 
-// Array of image paths (1-9)
+// Array of image paths (1-14)
 const images = [
     'images/image1.png',
     'images/image2.png',
@@ -21,7 +23,8 @@ const images = [
     'images/image11.png',
     'images/image12.png',
     'images/image13.png',
-    'images/image14.png',];
+    'images/image14.png'
+];
 
 function getRandomPosition() {
     const gameAreaRect = gameArea.getBoundingClientRect();
@@ -62,38 +65,25 @@ circle.addEventListener('click', () => {
     showCircle();
 });
 
-showCircle();
-
-
-let startTime = Date.now();
-let misclicks = 0;
-
-function updateTime() {
-    const timeElapsed = Math.floor((Date.now() - startTime) / 1000);
-    document.getElementById('time').innerText = timeElapsed;
-}
+gameArea.addEventListener('click', (event) => {
+    if (event.target !== circle) {
+        incrementMisclicks();
+    }
+});
 
 function incrementMisclicks() {
     misclicks++;
-    document.getElementById('misclick-count').innerText = misclicks;
+    misclickCount.textContent = misclicks;
 }
 
-function setupCircle() {
-    const circle = document.getElementById('circle');
-    circle.addEventListener('click', () => {
-        // Logic when circle is clicked (e.g., move the circle to a new random location)
-    });
-
-    document.getElementById('game-area').addEventListener('click', (event) => {
-        if (event.target !== circle) {
-            incrementMisclicks();
-        }
-    });
+function updateTime() {
+    const timeElapsed = Math.floor((Date.now() - startTime) / 1000);
+    timeDisplay.innerText = timeElapsed;
 }
 
 function startGame() {
     setInterval(updateTime, 1000); // Update the timer every second
-    setupCircle();
+    showCircle();
 }
 
 document.addEventListener('DOMContentLoaded', startGame);
