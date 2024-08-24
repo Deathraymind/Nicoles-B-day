@@ -29,3 +29,20 @@ body {
     margin-top: 20px;
     font-size: 24px;
 }
+
+#score, #misclicks {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#misclicks {
+    top: 60px; /* Positioning below the timer */
+}
+
