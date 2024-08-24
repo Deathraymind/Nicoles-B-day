@@ -116,7 +116,7 @@
     gap: 800px; /* Space between the doors */
     width: 100%;
     position: absolute;
-    bottom: 50px; /* Position the doors at the very bottom */
+    bottom: 150px; /* Position the doors at the very bottom */
     z-index: 10; /* Ensure doors are above other content */
 }
 
