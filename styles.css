@@ -107,10 +107,11 @@
 .door-container {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    gap: 20px; /* Space between the doors */
+    align-items: flex-end; /* Align the doors to the bottom */
+    gap: 40px; /* Increase the space between the doors */
     width: 100%; /* Make sure the container spans the full width */
-    margin-bottom: 20px; /* Space between the doors and the bottom of the screen */
+    position: absolute; /* Position the container at the bottom */
+    bottom: 20px; /* Space between the doors and the bottom of the screen */
 }
 
 .door {
@@ -135,4 +136,3 @@
     transform: translateY(-5px);
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
 }
-
