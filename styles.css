@@ -1,7 +1,7 @@
 .side .title {
     color: rgb(207, 7, 181);
     font-family: "Lobster", cursive;
-    font-size: 8vw;
+    font-size: 8vw;  /* Maintain large text for titles */
     margin: 0px 15vw;
     width: 70vw;
 }
@@ -44,7 +44,7 @@
 
 #page2 .title {
     color: white;
-    font-size: 3vw;
+    font-size: 6vw;  /* Make the text large and more visible */
 }
 
 #left-side .title {
@@ -56,8 +56,8 @@
 }
 
 .draggable {
-    width: 100px;
-    height: 100px;
+    width: 150px;  /* Increase size for better visibility */
+    height: 150px; /* Increase size for better visibility */
     background-image: url('yarn.png'); /* Set the background image */
     background-size: cover; /* Ensure the image covers the entire circle */
     background-position: center; /* Center the background image */
@@ -71,8 +71,8 @@
 }
 
 .chaser {
-    width: 100px;
-    height: 100px;
+    width: 150px;  /* Increase size for better visibility */
+    height: 150px; /* Increase size for better visibility */
     background-image: url('cat.png'); /* Set the background image */
     background-size: cover; /* Ensure the image covers the entire box */
     background-position: center; /* Center the background image */
@@ -81,31 +81,6 @@
     left: 20%;
     border-radius: 10px; /* Square shape with slight rounded corners */
     z-index: 1; /* Ensure it's above the background but below the circle */
-}
-
-/* Hole for entering page 3 */
-.hole {
-    width: 100px;
-    height: 100px;
-    background-color: black;
-    position: absolute;
-    bottom: 50px; /* Positioned near the bottom of page 2 */
-    left: 50%; /* Centered horizontally */
-    transform: translateX(-50%);
-    border-radius: 50%;
-    z-index: 2; /* Ensure it's above the background but below the cat */
-}
-
-/* Static target box on Page 3 */
-.target {
-    width: 150px;
-    height: 150px;
-    background-color: green;
-    position: absolute;
-    bottom: 50px; /* Positioned near the bottom of the page */
-    right: 50px; /* Positioned near the right of the page */
-    z-index: 1; /* Ensure it's above the background but below the cat */
-    border-radius: 10px;
 }
 
 /* Door Container */
@@ -121,8 +96,8 @@
 }
 
 .door {
-    width: 200px;
-    height: 300px;
+    width: 250px;  /* Increase size for better visibility */
+    height: 350px; /* Increase size for better visibility */
     background-image: url('door.png'); /* Set the background image */
     background-size: cover; /* Ensure the image covers the entire door */
     background-position: center; /* Center the background image */
@@ -133,7 +108,7 @@
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;  /* Increase font size inside the doors */
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     pointer-events: auto; /* Ensure pointer events are enabled */
@@ -153,8 +128,8 @@
 }
 
 .birthday {
-    width: 500px;
-    height: 500px;
+    width: 550px;  /* Increase size for better visibility */
+    height: 550px; /* Increase size for better visibility */
     background-image: url('birthday.png'); /* Set the background image */
     background-size: cover; /* Ensure the image covers the entire door */
     background-position: center; /* Center the background image */
@@ -165,7 +140,7 @@
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    font-size: 24px;
+    font-size: 30px;  /* Increase font size inside the birthday element */
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     pointer-events: auto; /* Ensure pointer events are enabled */
