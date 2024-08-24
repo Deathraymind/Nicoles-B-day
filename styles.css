@@ -15,6 +15,10 @@
     position: absolute;
     top: 0;
     left: 0;
+    background-image: url('background.jpg'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
 #left-side {
