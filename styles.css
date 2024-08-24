@@ -47,6 +47,14 @@
     font-size: 3vw;
 }
 
+#left-side .title {
+    color: white;
+}
+
+#right-side .title {
+    color: pink;
+}
+
 .draggable {
     width: 100px;
     height: 100px;
@@ -73,6 +81,31 @@
     left: 20%;
     border-radius: 10px; /* Square shape with slight rounded corners */
     z-index: 1; /* Ensure it's above the background but below the circle */
+}
+
+/* Hole for entering page 3 */
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    bottom: 50px; /* Positioned near the bottom of page 2 */
+    left: 50%; /* Centered horizontally */
+    transform: translateX(-50%);
+    border-radius: 50%;
+    z-index: 2; /* Ensure it's above the background but below the cat */
+}
+
+/* Static target box on Page 3 */
+.target {
+    width: 150px;
+    height: 150px;
+    background-color: green;
+    position: absolute;
+    bottom: 50px; /* Positioned near the bottom of the page */
+    right: 50px; /* Positioned near the right of the page */
+    z-index: 1; /* Ensure it's above the background but below the cat */
+    border-radius: 10px;
 }
 
 
