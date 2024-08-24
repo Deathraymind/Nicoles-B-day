@@ -56,6 +56,7 @@
     width: 100px;
     height: 100px;
     background-color: #ff6347;
+    background-image: url('yarn.png');
     position: absolute;
     top: 25%;
     left: 50%;
@@ -69,6 +70,7 @@
     width: 100px;
     height: 100px;
     background-color: #007bff;
+    background-image: url('cat.png');
     position: absolute;
     top: 20%;
     left: 20%;
