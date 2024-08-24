@@ -116,6 +116,7 @@
     width: 100%; /* Make sure the container spans the full width */
     position: absolute; /* Position the container at the bottom */
     bottom: 250px; /* Space between the doors and the bottom of the screen */
+    z-index: 7;
 }
 
 .door {
@@ -151,6 +152,7 @@
     width: 100%; /* Make sure the container spans the full width */
     position: absolute; /* Position the container at the bottom */
     bottom: 250px; /* Space between the doors and the bottom of the screen */
+    z-index: 10;
 }
 
 .birthday {
