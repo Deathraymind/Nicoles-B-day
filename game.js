@@ -104,9 +104,9 @@ function applyPhysics() {
         }
 
         // Check for collision with the left ledge
-        if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, leftLedge.offsetLeft, leftLedge.offsetTop, leftLedge.offsetWidth, leftLedge.offsetHeight)) {
+        if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, leftLedge.offsetLeft, leftLedge.offsetTop, leftLedge.offsetWidth, leftLedge.offsetHeight)) {
             if (!isOnLeftLedge) {
-                console.log("Yarn is on the left ledge");
+                console.log("Cat is on the left ledge");
                 isOnLeftLedge = true;
                 leftLedgeTimer = setTimeout(() => {
                     console.log("Redirecting to valorant.html");
@@ -115,11 +115,12 @@ function applyPhysics() {
             }
         } else {
             if (isOnLeftLedge) {
-                console.log("Yarn left the left ledge");
+                console.log("Cat left the left ledge");
                 isOnLeftLedge = false;
                 clearTimeout(leftLedgeTimer);
             }
         }
+        
 
         // Check for collision with the right ledge
         if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, rightLedge.offsetLeft, rightLedge.offsetTop, rightLedge.offsetWidth, rightLedge.offsetHeight)) {
