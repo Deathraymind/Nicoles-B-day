@@ -1,5 +1,6 @@
 const draggable = document.getElementById('draggable');
 const chaser = document.getElementById('chaser');
+const hole = document.getElementById('hole');
 const target = document.getElementById('target');
 
 let posX = window.innerWidth / 2;
@@ -101,13 +102,13 @@ function applyPhysics() {
         chaser.style.left = `${chaserPosX}px`;
         chaser.style.top = `${chaserPosY}px`;
 
-        // Check for collision with the target box
-        if (chaserPosX < target.offsetLeft + target.offsetWidth &&
-            chaserPosX + chaser.offsetWidth > target.offsetLeft &&
-            chaserPosY < target.offsetTop + target.offsetHeight &&
-            chaserPosY + chaser.offsetHeight > target.offsetTop) {
-                // Redirect to a new page when the cat enters the target box
-                window.location.href = "pagenerd.html";
+        // Check for collision with the hole
+        if (chaserPosX < hole.offsetLeft + hole.offsetWidth &&
+            chaserPosX + chaser.offsetWidth > hole.offsetLeft &&
+            chaserPosY < hole.offsetTop + hole.offsetHeight &&
+            chaserPosY + chaser.offsetHeight > hole.offsetTop) {
+                // Scroll the user down to page 3
+                window.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' });
         }
     }
 

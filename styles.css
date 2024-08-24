@@ -77,12 +77,37 @@
 }
 
 
+/* Hole for entering page 3 */
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    bottom: 50px; /* Positioned near the bottom of page 2 */
+    left: 50%; /* Centered horizontally */
+    transform: translateX(-50%);
+    border-radius: 50%;
+    z-index: 2; /* Ensure it's above the background but below the cat */
+}
+
+/* Page 3 styling */
+#page3 {
+    background-color: lightblue;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 200vh; /* Positioned below page 2 */
+    left: 0;
+    z-index: 1;
+}
+
+/* Static target box on Page 3 */
 .target {
     width: 150px;
     height: 150px;
-    background-color: rgb(104, 97, 0);
+    background-color: green;
     position: absolute;
-    bottom: 0px; /* Positioned near the bottom of the page */
+    bottom: 50px; /* Positioned near the bottom of the page */
     right: 50px; /* Positioned near the right of the page */
     z-index: 1; /* Ensure it's above the background but below the cat */
     border-radius: 10px;
