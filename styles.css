@@ -91,27 +91,17 @@
 }
 
 .wall {
-    width: 100%;
-    height: 200px;
+    width: 300px;
+    height: 50px;
     background-color: gray;
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2; /* Ensure it's above the background but below the cat */
+    border-radius: 5px;
 }
 
-/* Hole in the wall */
-.hole {
-    width: 100px;
-    height: 100px;
-    background-color: black;
-    position: absolute;
-    top: 50%; /* Centered vertically in the wall */
-    left: 50%; /* Centered horizontally in the wall */
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 3; /* Ensure it's above the wall */
-}
 
 /* Static target box on Page 3 */
 .target {

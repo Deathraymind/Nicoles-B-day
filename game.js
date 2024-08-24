@@ -1,7 +1,6 @@
 const draggable = document.getElementById('draggable');
 const chaser = document.getElementById('chaser');
 const wall = document.getElementById('wall');
-const hole = document.getElementById('hole');
 
 let posX = window.innerWidth / 2;
 let posY = window.innerHeight / 2;
@@ -53,6 +52,16 @@ document.addEventListener('mouseup', () => {
     draggable.style.cursor = 'grab';
 });
 
+// Function to detect collisions with the wall
+function checkCollision(objectX, objectY, objectWidth, objectHeight, wallX, wallY, wallWidth, wallHeight) {
+    return (
+        objectX < wallX + wallWidth &&
+        objectX + objectWidth > wallX &&
+        objectY < wallY + wallHeight &&
+        objectY + objectHeight > wallY
+    );
+}
+
 // Function to apply physics for both the ball of yarn and the cat
 function applyPhysics() {
     if (!isDragging) {
@@ -72,6 +81,20 @@ function applyPhysics() {
             velocityY = -velocityY * bounceFactor;
             if (posY < 0) posY = 0;
             if (posY + draggable.offsetHeight > window.innerHeight) posY = window.innerHeight - draggable.offsetHeight;
+        }
+
+        // Check for collision with the wall
+        if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, wall.offsetLeft, wall.offsetTop, wall.offsetWidth, wall.offsetHeight)) {
+            if (posX < wall.offsetLeft) {
+                posX = wall.offsetLeft - draggable.offsetWidth;
+            } else if (posX + draggable.offsetWidth > wall.offsetLeft + wall.offsetWidth) {
+                posX = wall.offsetLeft + wall.offsetWidth;
+            }
+            if (posY < wall.offsetTop) {
+                posY = wall.offsetTop - draggable.offsetHeight;
+            } else if (posY + draggable.offsetHeight > wall.offsetTop + wall.offsetHeight) {
+                posY = wall.offsetTop + wall.offsetHeight;
+            }
         }
 
         // Apply friction
@@ -98,34 +121,23 @@ function applyPhysics() {
         chaserPosX += chaserVelocityX;
         chaserPosY += chaserVelocityY;
 
+        // Check for collision with the wall
+        if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, wall.offsetLeft, wall.offsetTop, wall.offsetWidth, wall.offsetHeight)) {
+            if (chaserPosX < wall.offsetLeft) {
+                chaserPosX = wall.offsetLeft - chaser.offsetWidth;
+            } else if (chaserPosX + chaser.offsetWidth > wall.offsetLeft + wall.offsetWidth) {
+                chaserPosX = wall.offsetLeft + wall.offsetWidth;
+            }
+            if (chaserPosY < wall.offsetTop) {
+                chaserPosY = wall.offsetTop - chaser.offsetHeight;
+            } else if (chaserPosY + chaser.offsetHeight > wall.offsetTop + wall.offsetHeight) {
+                chaserPosY = wall.offsetTop + wall.offsetHeight;
+            }
+        }
+
         // Update the position of the cat
         chaser.style.left = `${chaserPosX}px`;
         chaser.style.top = `${chaserPosY}px`;
-
-        // Check for collision with the wall
-        if (chaserPosY + chaser.offsetHeight > wall.offsetTop &&
-            chaserPosY < wall.offsetTop + wall.offsetHeight &&
-            chaserPosX + chaser.offsetWidth > wall.offsetLeft &&
-            chaserPosX < wall.offsetLeft + wall.offsetWidth) {
-                
-            // Allow the cat to pass through the hole
-            if (!(chaserPosX + chaser.offsetWidth > hole.offsetLeft &&
-                  chaserPosX < hole.offsetLeft + hole.offsetWidth &&
-                  chaserPosY + chaser.offsetHeight > hole.offsetTop &&
-                  chaserPosY < hole.offsetTop + hole.offsetHeight)) {
-                // If not passing through the hole, block the movement
-                if (chaserPosX < hole.offsetLeft) {
-                    chaserPosX = hole.offsetLeft - chaser.offsetWidth;
-                } else if (chaserPosX > hole.offsetLeft + hole.offsetWidth) {
-                    chaserPosX = hole.offsetLeft + hole.offsetWidth;
-                }
-                if (chaserPosY < wall.offsetTop) {
-                    chaserPosY = wall.offsetTop - chaser.offsetHeight;
-                } else if (chaserPosY > wall.offsetTop + wall.offsetHeight) {
-                    chaserPosY = wall.offsetTop + wall.offsetHeight;
-                }
-            }
-        }
     }
 
     requestAnimationFrame(applyPhysics); // Continue the physics loop
