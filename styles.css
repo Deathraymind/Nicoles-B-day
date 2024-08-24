@@ -39,13 +39,12 @@
     z-index: 1;
 }
 
-
 #page2 .title {
-    color: white
+    color: white;
 }
 
 #left-side .title {
-    color: white
+    color: white;
 }
 
 #right-side .title {
@@ -55,8 +54,9 @@
 .draggable {
     width: 100px;
     height: 100px;
-    background-color: #ff6347;
-    background-image: url('yarn.png');
+    background-image: url('yarn.png'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire circle */
+    background-position: center; /* Center the background image */
     position: absolute;
     top: 25%;
     left: 50%;
@@ -69,15 +69,15 @@
 .chaser {
     width: 100px;
     height: 100px;
-    background-color: #007bff;
-    background-image: url('cat.png');
+    background-image: url('cat.png'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire box */
+    background-position: center; /* Center the background image */
     position: absolute;
     top: 20%;
     left: 20%;
     border-radius: 10px; /* Square shape with slight rounded corners */
     z-index: 1; /* Ensure it's above the background but below the circle */
 }
-
 
 /* Hole for entering page 3 */
 .hole {
@@ -91,8 +91,6 @@
     border-radius: 50%;
     z-index: 2; /* Ensure it's above the background but below the cat */
 }
-
-
 
 /* Static target box on Page 3 */
 .target {
