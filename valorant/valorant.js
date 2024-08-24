@@ -1,12 +1,23 @@
 let totalCircles = 15;
 let circlesClicked = 0;
-let misclicks = 0;
-let startTime, timerInterval;
+let startTime, endTime;
 
 const gameArea = document.getElementById('game-area');
 const circle = document.getElementById('circle');
 const timeDisplay = document.getElementById('time');
-const misclicksDisplay = document.getElementById('misclicks');
+
+// Array of image paths (1-9)
+const images = [
+    'images/image1.png',
+    'images/image2.png',
+    'images/image3.png',
+    'images/image4.png',
+    'images/image5.png',
+    'images/image6.png',
+    'images/image7.png',
+    'images/image8.png',
+    'images/image9.png'
+];
 
 function getRandomPosition() {
     const gameAreaRect = gameArea.getBoundingClientRect();
@@ -15,27 +26,29 @@ function getRandomPosition() {
     return { x, y };
 }
 
-function updateTime() {
-    const currentTime = (Date.now() - startTime) / 1000;
-    timeDisplay.textContent = currentTime.toFixed(2);
+function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
 }
 
 function showCircle() {
     if (circlesClicked === 0) {
         startTime = Date.now();
-        timerInterval = setInterval(updateTime, 10);
     }
 
     if (circlesClicked < totalCircles) {
         const { x, y } = getRandomPosition();
+        const randomImage = getRandomImage();
         circle.style.left = `${x}px`;
         circle.style.top = `${y}px`;
+        circle.style.backgroundImage = `url(${randomImage})`;
         circle.style.display = 'block';
     } else {
-        clearInterval(timerInterval);
+        endTime = Date.now();
         circle.style.display = 'none';
-        const timeTaken = (Date.now() - startTime) / 1000;
-        alert(`You completed the challenge in ${timeTaken.toFixed(2)} seconds with ${misclicks} misclicks!`);
+        const timeTaken = (endTime - startTime) / 1000;
+        timeDisplay.textContent = timeTaken.toFixed(2);
+        alert(`You completed the challenge in ${timeTaken.toFixed(2)} seconds!`);
     }
 }
 
@@ -43,13 +56,6 @@ circle.addEventListener('click', () => {
     circlesClicked++;
     circle.style.display = 'none';
     showCircle();
-});
-
-gameArea.addEventListener('click', (e) => {
-    if (e.target !== circle) {
-        misclicks++;
-        misclicksDisplay.textContent = misclicks;
-    }
 });
 
 showCircle();
