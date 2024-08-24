@@ -39,6 +39,11 @@
     z-index: 1;
 }
 
+
+#page2 .title {
+    color: white
+}
+
 #left-side .title {
     color: white
 }
@@ -75,9 +80,9 @@
 .target {
     width: 150px;
     height: 150px;
-    background-color: green;
+    background-color: rgb(104, 97, 0);
     position: absolute;
-    bottom: 50px; /* Positioned near the bottom of the page */
+    bottom: 0px; /* Positioned near the bottom of the page */
     right: 50px; /* Positioned near the right of the page */
     z-index: 1; /* Ensure it's above the background but below the cat */
     border-radius: 10px;
