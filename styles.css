@@ -90,15 +90,27 @@
     z-index: 2; /* Ensure it's above the background but below the cat */
 }
 
-/* Page 3 styling */
-#page3 {
-    background-color: lightblue;
-    width: 100vw;
-    height: 100vh;
+.wall {
+    width: 100%;
+    height: 200px;
+    background-color: gray;
     position: absolute;
-    top: 200vh; /* Positioned below page 2 */
+    top: 50%;
     left: 0;
-    z-index: 1;
+    z-index: 2; /* Ensure it's above the background but below the cat */
+}
+
+/* Hole in the wall */
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    top: 50%; /* Centered vertically in the wall */
+    left: 50%; /* Centered horizontally in the wall */
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 3; /* Ensure it's above the wall */
 }
 
 /* Static target box on Page 3 */
