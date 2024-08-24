@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Google Slides</title>
+    <style>
+        /* Optional CSS to style your iframe */
+        .slide-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; /* Example background */
+        }
+
+        .slide-embed {
+            width: 80%;
+            height: 80%;
+            border: none; /* Remove border */
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSZRvwz_p5yUJidYyT-5hcXfI_0kydt0vxn1iw_a3kCwrKAtnoqj1CsVT6EeiI7QgRQm-fx3D4Dn3zA/embed?start=false&loop=false&delayms=3000"
+                class="slide-embed"
+                allowfullscreen="true"
+                mozallowfullscreen="true"
+                webkitallowfullscreen="true">
+        </iframe>
+    </div>
+</body>
+</html>

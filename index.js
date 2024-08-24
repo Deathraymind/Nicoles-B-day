@@ -26,7 +26,6 @@ document.getElementById('door1').addEventListener('click', function() {
 });
 
 document.getElementById('door2').addEventListener('click', function() {
-    window.location.href = 'page2.html'; // Redirect to a different page or do something else
+    window.location.href = 'https://docs.google.com/presentation/d/12urJ0uRulhT-e3tRKmAjRF9745ipnCsn4WkKRmW4L1U/edit?usp=sharing'; // Redirect to the specified URL
 });
-
 
