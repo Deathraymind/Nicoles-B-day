@@ -1,7 +1,7 @@
 .side .title {
     color: rgb(207, 7, 181);
     font-family: "Lobster", cursive;
-    font-size: 8vw;  /* Maintain large text for titles */
+    font-size: 8vw;
     margin: 0px 15vw;
     width: 70vw;
 }
@@ -44,7 +44,7 @@
 
 #page2 .title {
     color: white;
-    font-size: 6vw;  /* Make the text large and more visible */
+    font-size: 3vw;  /* Keep the original text size */
 }
 
 #left-side .title {
@@ -56,8 +56,8 @@
 }
 
 .draggable {
-    width: 150px;  /* Increase size for better visibility */
-    height: 150px; /* Increase size for better visibility */
+    width: 100px;
+    height: 100px;
     background-image: url('yarn.png'); /* Set the background image */
     background-size: cover; /* Ensure the image covers the entire circle */
     background-position: center; /* Center the background image */
@@ -71,8 +71,8 @@
 }
 
 .chaser {
-    width: 150px;  /* Increase size for better visibility */
-    height: 150px; /* Increase size for better visibility */
+    width: 100px;
+    height: 100px;
     background-image: url('cat.png'); /* Set the background image */
     background-size: cover; /* Ensure the image covers the entire box */
     background-position: center; /* Center the background image */
@@ -96,8 +96,8 @@
 }
 
 .door {
-    width: 250px;  /* Increase size for better visibility */
-    height: 350px; /* Increase size for better visibility */
+    width: 200px;
+    height: 300px;
     background-image: url('door.png'); /* Set the background image */
     background-size: cover; /* Ensure the image covers the entire door */
     background-position: center; /* Center the background image */
@@ -108,7 +108,7 @@
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    font-size: 28px;  /* Increase font size inside the doors */
+    font-size: 24px;  /* Keep the original font size inside the doors */
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     pointer-events: auto; /* Ensure pointer events are enabled */
@@ -128,8 +128,8 @@
 }
 
 .birthday {
-    width: 550px;  /* Increase size for better visibility */
-    height: 550px; /* Increase size for better visibility */
+    width: 500px;
+    height: 500px;
     background-image: url('birthday.png'); /* Set the background image */
     background-size: cover; /* Ensure the image covers the entire door */
     background-position: center; /* Center the background image */
@@ -140,7 +140,7 @@
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    font-size: 30px;  /* Increase font size inside the birthday element */
+    font-size: 24px;  /* Keep the original font size inside the birthday element */
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     pointer-events: auto; /* Ensure pointer events are enabled */
