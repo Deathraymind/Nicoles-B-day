@@ -29,3 +29,15 @@ document.getElementById('door2').addEventListener('click', function() {
     window.location.href = 'nerdshit/nerdshit.html'; // Redirect to the specified URL
 });
 
+// Wait until the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the chaser element and the audio element
+    const chaser = document.querySelector('.chaser');
+    const audio = document.getElementById('cat-audio');
+
+    // Add a click event listener to the chaser element
+    chaser.addEventListener('click', function() {
+        audio.play(); // Play the audio when chaser is clicked
+    });
+});
+
