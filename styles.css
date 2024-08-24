@@ -75,15 +75,15 @@
     z-index: 1; /* Ensure it's above the background but below the circle */
 }
 
-/* Door Container */
+
 .door-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 300px; /* Space between the doors */
+    gap: 800px; /* Space between the doors */
     width: 100%;
     position: absolute;
-    bottom: 150px; /* Position the doors above the bottom */
+    bottom: 50px; /* Position the doors at the very bottom */
     z-index: 10; /* Ensure doors are above other content */
 }
 
@@ -103,6 +103,7 @@
     font-size: 24px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
+    pointer-events: auto; /* Ensure pointer events are enabled */
 }
 
 .door:hover {
@@ -110,12 +111,11 @@
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Birthday Container */
 .birthday-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 300px;
+    gap: 300px; /* Increase the space between the doors */
     width: 100%;
     position: absolute;
     top: 50px; /* Position the birthday element near the top */
@@ -126,7 +126,7 @@
     width: 500px;
     height: 500px;
     background-image: url('birthday.png'); /* Set the background image */
-    background-size: cover; /* Ensure the image covers the entire element */
+    background-size: cover; /* Ensure the image covers the entire door */
     background-position: center; /* Center the background image */
     color: white;
     display: flex;
@@ -138,6 +138,7 @@
     font-size: 24px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
+    pointer-events: auto; /* Ensure pointer events are enabled */
 }
 
 .birthday:hover {
