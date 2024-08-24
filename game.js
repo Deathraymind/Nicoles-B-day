@@ -9,14 +9,14 @@ let posY = window.innerHeight / 2;
 let velocityX = 0; // Initial horizontal velocity
 let velocityY = 0; // Initial vertical velocity
 let gravity = 0.5; // Gravity acceleration for the ball of yarn
-let friction = 0.80; // Friction to reduce velocity over time
+let friction = 0.96; // Friction to reduce velocity over time
 let bounceFactor = 0.4; // Bounce damping factor
 
 let chaserPosX = window.innerWidth / 4;
 let chaserPosY = window.innerHeight / 4;
 let chaserVelocityX = 0;
 let chaserVelocityY = 0;
-let springStrength = 0.05; // How strongly the "rubber band" pulls
+let springStrength = 0.02; // How strongly the "rubber band" pulls
 let damping = 0.9; // Reduces oscillations
 
 let isDragging = false;
