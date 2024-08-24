@@ -102,6 +102,26 @@
     border-radius: 5px;
 }
 
+/* Vertical walls (left and right) */
+.vertical-wall {
+    width: 50px;
+    height: 300px;
+    background-color: gray;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2; /* Ensure it's above the background but below the cat */
+    border-radius: 5px;
+}
+
+#left-wall {
+    left: 0; /* Positioned on the left side */
+}
+
+#right-wall {
+    right: 0; /* Positioned on the right side */
+}
+
 
 /* Static target box on Page 3 */
 .target {
