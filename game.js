@@ -1,3 +1,70 @@
+const draggable = document.getElementById('draggable');
+const chaser = document.getElementById('chaser');
+const middleWall = document.getElementById('middle-wall');
+const leftLedge = document.getElementById('left-ledge');
+const rightLedge = document.getElementById('right-ledge');
+
+let posX = window.innerWidth / 2;
+let posY = window.innerHeight / 2;
+let velocityX = 0; // Initial horizontal velocity
+let velocityY = 0; // Initial vertical velocity
+let gravity = 0.5; // Gravity acceleration for the ball of yarn
+let friction = 0.96; // Friction to reduce velocity over time
+let bounceFactor = 0.4; // Bounce damping factor
+
+let chaserPosX = window.innerWidth / 4;
+let chaserPosY = window.innerHeight / 4;
+let chaserVelocityX = 0;
+let chaserVelocityY = 0;
+let springStrength = 0.02; // How strongly the "rubber band" pulls
+let damping = 0.9; // Reduces oscillations
+
+let isDragging = false;
+let offsetX, offsetY;
+let lastMouseX, lastMouseY; // To calculate the velocity based on drag
+
+draggable.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    offsetX = e.clientX - draggable.getBoundingClientRect().left;
+    offsetY = e.clientY - draggable.getBoundingClientRect().top;
+    draggable.style.cursor = 'grabbing';
+    velocityX = 0; // Stop current motion on grab
+    velocityY = 0;
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+});
+
+document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        posX = e.clientX - offsetX;
+        posY = e.clientY - offsetY;
+        draggable.style.left = `${posX}px`;
+        draggable.style.top = `${posY}px`;
+
+        // Calculate the velocity based on mouse movement
+        velocityX = e.clientX - lastMouseX;
+        velocityY = e.clientY - lastMouseY;
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+    draggable.style.cursor = 'grab';
+});
+
+// Function to detect collisions with the ledges
+function checkCollision(objectX, objectY, objectWidth, objectHeight, wallX, wallY, wallWidth, wallHeight) {
+    return (
+        objectX < wallX + wallWidth &&
+        objectX + objectWidth > wallX &&
+        objectY < wallY + wallHeight &&
+        objectY + objectHeight > wallY
+    );
+}
+
+// Function to apply physics for both the ball of yarn and the cat
 function applyPhysics() {
     if (!isDragging) {
         // Apply gravity to the ball of yarn
@@ -71,68 +138,64 @@ function applyPhysics() {
         posY = nextPosY;
         draggable.style.left = `${posX}px`;
         draggable.style.top = `${posY}px`;
+    }
 
-        // Calculate the force that pulls the cat towards the yarn
-        let forceX = (posX - chaserPosX) * springStrength;
-        let forceY = (posY - chaserPosY) * springStrength;
+    // Calculate the force that pulls the cat towards the yarn
+    let forceX = (posX - chaserPosX) * springStrength;
+    let forceY = (posY - chaserPosY) * springStrength;
 
-        // Update the cat's velocity based on the force
-        chaserVelocityX += forceX;
-        chaserVelocityY += forceY;
+    // Update the cat's velocity based on the force
+    chaserVelocityX += forceX;
+    chaserVelocityY += forceY;
 
-        // Apply damping to reduce oscillations
-        chaserVelocityX *= damping;
-        chaserVelocityY *= damping;
+    // Apply damping to reduce oscillations
+    chaserVelocityX *= damping;
+    chaserVelocityY *= damping;
 
-        // Update the cat's position based on its velocity
-        chaserPosX += chaserVelocityX;
-        chaserPosY += chaserVelocityY;
+    // Update the cat's position based on its velocity
+    chaserPosX += chaserVelocityX;
+    chaserPosY += chaserVelocityY;
 
-        // Check for collision with the middle wall for the cat
-        if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, middleWall.offsetLeft, middleWall.offsetTop, middleWall.offsetWidth, middleWall.offsetHeight)) {
-            if (chaserPosX < middleWall.offsetLeft) {
-                chaserPosX = middleWall.offsetLeft - chaser.offsetWidth;
-            } else if (chaserPosX + chaser.offsetWidth > middleWall.offsetLeft + middleWall.offsetWidth) {
-                chaserPosX = middleWall.offsetLeft + middleWall.offsetWidth;
-            }
-            if (chaserPosY < middleWall.offsetTop) {
-                chaserPosY = middleWall.offsetTop - chaser.offsetHeight;
-            } else if (chaserPosY + chaser.offsetHeight > middleWall.offsetTop + middleWall.offsetHeight) {
-                chaserPosY = middleWall.offsetTop + middleWall.offsetHeight;
-            }
+    // Check for collision with the middle wall for the cat
+    if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, middleWall.offsetLeft, middleWall.offsetTop, middleWall.offsetWidth, middleWall.offsetHeight)) {
+        if (chaserPosX < middleWall.offsetLeft) {
+            chaserPosX = middleWall.offsetLeft - chaser.offsetWidth;
+        } else if (chaserPosX + chaser.offsetWidth > middleWall.offsetLeft + middleWall.offsetWidth) {
+            chaserPosX = middleWall.offsetLeft + middleWall.offsetWidth;
         }
-
-        // Check for collision with the left ledge for the cat
-        if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, leftLedge.offsetLeft, leftLedge.offsetTop, leftLedge.offsetWidth, leftLedge.offsetHeight)) {
-            if (chaserPosX < leftLedge.offsetLeft) {
-                chaserPosX = leftLedge.offsetLeft - chaser.offsetWidth;
-            } else if (chaserPosX + chaser.offsetWidth > leftLedge.offsetLeft + leftLedge.offsetWidth) {
-                chaserPosX = leftLedge.offsetLeft + leftLedge.offsetWidth;
-            }
-            if (chaserPosY < leftLedge.offsetTop) {
-                chaserPosY = leftLedge.offsetTop - chaser.offsetHeight;
-            } else if (chaserPosY + chaser.offsetHeight > leftLedge.offsetTop + leftLedge.offsetHeight) {
-                chaserPosY = leftLedge.offsetTop + leftLedge.offsetHeight;
-            }
+        if (chaserPosY < middleWall.offsetTop) {
+            chaserPosY = middleWall.offsetTop - chaser.offsetHeight;
+        } else if (chaserPosY + chaser.offsetHeight > middleWall.offsetTop + middleWall.offsetHeight) {
+            chaserPosY = middleWall.offsetTop + middleWall.offsetHeight;
         }
+    }
 
-        // Check for collision with the right ledge for the cat
-        if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, rightLedge.offsetLeft, rightLedge.offsetTop, rightLedge.offsetWidth, rightLedge.offsetHeight)) {
-            if (chaserPosX < rightLedge.offsetLeft) {
-                chaserPosX = rightLedge.offsetLeft - chaser.offsetWidth;
-            } else if (chaserPosX + chaser.offsetWidth > rightLedge.offsetLeft + rightLedge.offsetWidth) {
-                chaserPosX = rightLedge.offsetLeft + rightLedge.offsetWidth;
-            }
-            if (chaserPosY < rightLedge.offsetTop) {
-                chaserPosY = rightLedge.offsetTop - chaser.offsetHeight;
-            } else if (chaserPosY + chaser.offsetHeight > rightLedge.offsetTop + rightLedge.offsetHeight) {
-                chaserPosY = rightLedge.offsetTop + rightLedge.offsetHeight;
-            }
+    // Check for collision with the left ledge for the cat
+    if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, leftLedge.offsetLeft, leftLedge.offsetTop, leftLedge.offsetWidth, leftLedge.offsetHeight)) {
+        if (chaserPosX < leftLedge.offsetLeft) {
+            chaserPosX = leftLedge.offsetLeft - chaser.offsetWidth;
+        } else if (chaserPosX + chaser.offsetWidth > leftLedge.offsetLeft + leftLedge.offsetWidth) {
+            chaserPosX = leftLedge.offsetLeft + leftLedge.offsetWidth;
         }
+        if (chaserPosY < leftLedge.offsetTop) {
+            chaserPosY = leftLedge.offsetTop - chaser.offsetHeight;
+        } else if (chaserPosY + chaser.offsetHeight > leftLedge.offsetTop + leftLedge.offsetHeight) {
+            chaserPosY = leftLedge.offsetTop + leftLedge.offsetHeight;
+        }
+    }
 
-        // Update the position of the cat
-        chaser.style.left = `${chaserPosX}px`;
-        chaser.style.top = `${chaserPosY}px`;
+    // Check for collision with the right ledge for the cat
+    if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, rightLedge.offsetLeft, rightLedge.offsetTop, rightLedge.offsetWidth, rightLedge.offsetHeight)) {
+        if (chaserPosX < rightLedge.offsetLeft) {
+            chaserPosX = rightLedge.offsetLeft - chaser.offsetWidth;
+        } else if (chaserPosX + chaser.offsetWidth > rightLedge.offsetLeft + rightLedge.offsetWidth) {
+            chaserPosX = rightLedge.offsetLeft + rightRidge.offsetWidth;
+        }
+        if (chaserPosY < rightLedge.offsetTop) {
+            chaserPosY = rightLedge.offsetTop - chaser.offsetHeight;
+        } else if (chaserPosY + chaser.offsetHeight > rightLedge.offsetTop + rightLedge.offsetHeight) {
+            chaserPosY = rightLedge.offsetTop + rightLedge.offsetHeight;
+        }
     }
 
     requestAnimationFrame(applyPhysics); // Continue the physics loop
