@@ -1,10 +1,12 @@
 let totalCircles = 15;
 let circlesClicked = 0;
-let startTime, endTime;
+let misclicks = 0;
+let startTime, timerInterval;
 
 const gameArea = document.getElementById('game-area');
 const circle = document.getElementById('circle');
 const timeDisplay = document.getElementById('time');
+const misclicksDisplay = document.getElementById('misclicks');
 
 function getRandomPosition() {
     const gameAreaRect = gameArea.getBoundingClientRect();
@@ -13,9 +15,15 @@ function getRandomPosition() {
     return { x, y };
 }
 
+function updateTime() {
+    const currentTime = (Date.now() - startTime) / 1000;
+    timeDisplay.textContent = currentTime.toFixed(2);
+}
+
 function showCircle() {
     if (circlesClicked === 0) {
         startTime = Date.now();
+        timerInterval = setInterval(updateTime, 10);
     }
 
     if (circlesClicked < totalCircles) {
@@ -24,11 +32,10 @@ function showCircle() {
         circle.style.top = `${y}px`;
         circle.style.display = 'block';
     } else {
-        endTime = Date.now();
+        clearInterval(timerInterval);
         circle.style.display = 'none';
-        const timeTaken = (endTime - startTime) / 1000;
-        timeDisplay.textContent = timeTaken.toFixed(2);
-        alert(`You completed the challenge in ${timeTaken.toFixed(2)} seconds!`);
+        const timeTaken = (Date.now() - startTime) / 1000;
+        alert(`You completed the challenge in ${timeTaken.toFixed(2)} seconds with ${misclicks} misclicks!`);
     }
 }
 
@@ -36,6 +43,13 @@ circle.addEventListener('click', () => {
     circlesClicked++;
     circle.style.display = 'none';
     showCircle();
+});
+
+gameArea.addEventListener('click', (e) => {
+    if (e.target !== circle) {
+        misclicks++;
+        misclicksDisplay.textContent = misclicks;
+    }
 });
 
 showCircle();
