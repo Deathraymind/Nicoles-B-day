@@ -16,8 +16,12 @@ const images = [
     'images/image6.png',
     'images/image7.png',
     'images/image8.png',
-    'images/image9.png'
-];
+    'images/image9.png',
+    'images/image10.png',
+    'images/image11.png',
+    'images/image12.png',
+    'images/image13.png',
+    'images/image14.png',];
 
 function getRandomPosition() {
     const gameAreaRect = gameArea.getBoundingClientRect();
