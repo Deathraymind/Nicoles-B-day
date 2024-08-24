@@ -108,15 +108,14 @@
     border-radius: 10px;
 }
 
-
+/* Door Container */
 .door-container {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 800px; /* Space between the doors */
-    width: 100%;
+    flex-direction: column; /* Stack doors vertically */
+    gap: 200px; /* 200px gap between doors */
     position: absolute;
-    bottom: 200px; /* Position the doors at the very bottom */
+    bottom: 200px; /* 200px from the bottom */
+    left: 50px; /* 50px from the left edge */
     z-index: 10; /* Ensure doors are above other content */
 }
 
@@ -144,15 +143,12 @@
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Birthday Container */
 .birthday-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 300px; /* Increase the space between the doors */
-    width: 100%;
     position: absolute;
-    bottom: 200px; /* Position the doors at the very bottom */
-    z-index: 15; /* Higher z-index to ensure both are clickable */
+    bottom: 200px; /* 200px from the bottom */
+    right: 50px; /* 50px from the right edge */
+    z-index: 15; /* Higher z-index to ensure it's clickable */
 }
 
 .birthday {
