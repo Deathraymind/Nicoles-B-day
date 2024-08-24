@@ -111,8 +111,9 @@
 /* Door Container */
 .door-container {
     display: flex;
-    flex-direction: column; /* Stack doors vertically */
-    gap: 200px; /* 200px gap between doors */
+    justify-content: flex-start; /* Align doors to the left */
+    align-items: flex-end;
+    gap: 200px; /* 200px gap between the doors */
     position: absolute;
     bottom: 200px; /* 200px from the bottom */
     left: 50px; /* 50px from the left edge */
