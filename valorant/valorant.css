@@ -49,7 +49,7 @@ body {
 
 #info {
     margin-bottom: 20px;
-    background-color: #f0f0f0;
+    background-color: #ff188b;
     padding: 10px;
     border-radius: 5px;
 }
@@ -62,11 +62,11 @@ body {
 #info p {
     margin: 5px 0;
     font-size: 16px;
-    color: #555;
+    color: white;
 }
 
 #info a {
-    color: #007bff;
+    color: #c300ff;
     text-decoration: none;
 }
 
