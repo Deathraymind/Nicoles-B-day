@@ -21,4 +21,12 @@ window.addEventListener("scroll", () => {
     }
 });
 
+document.getElementById('door1').addEventListener('click', function() {
+    window.location.href = 'page1.html'; // Redirect to a different page or do something else
+});
+
+document.getElementById('door2').addEventListener('click', function() {
+    window.location.href = 'page2.html'; // Redirect to a different page or do something else
+});
+
 
