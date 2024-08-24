@@ -116,7 +116,9 @@
 .door {
     width: 150px;
     height: 300px;
-    background-color: #8B4513;
+    background-image: url('door.png'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire door */
+    background-position: center; /* Center the background image */
     color: white;
     display: flex;
     justify-content: center;
@@ -133,3 +135,4 @@
     transform: translateY(-5px);
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
 }
+
