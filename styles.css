@@ -104,10 +104,6 @@
     border-radius: 10px;
 }
 
-
-
-
-
 .door-container {
     display: flex;
     justify-content: center;
@@ -137,4 +133,3 @@
     transform: translateY(-5px);
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
 }
-
