@@ -103,23 +103,38 @@
 }
 
 /* Vertical walls (left and right) */
-.vertical-wall {
-    width: 50px;
-    height: 300px;
+.ledge {
+    width: 150px;  /* Adjust the width of the ledge */
+    height: 50px;  /* Set the height of the ledge */
     background-color: gray;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     z-index: 2; /* Ensure it's above the background but below the cat */
     border-radius: 5px;
 }
 
-#left-wall {
-    left: 0; /* Positioned on the left side */
+/* Middle wall obstacle */
+#middle-wall {
+    width: 300px;
+    height: 50px;
+    background-color: gray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Ensure it's above the background but below the cat */
+    border-radius: 5px;
 }
 
-#right-wall {
-    right: 0; /* Positioned on the right side */
+/* Left ledge */
+#left-ledge {
+    top: 25%;  /* Adjust the vertical position of the left ledge */
+    left: 0;   /* Position the ledge against the left side of the page */
+}
+
+/* Right ledge */
+#right-ledge {
+    top: 75%;  /* Adjust the vertical position of the right ledge */
+    right: 0;  /* Position the ledge against the right side of the page */
 }
 
 

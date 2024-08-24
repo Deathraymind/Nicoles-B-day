@@ -1,8 +1,8 @@
 const draggable = document.getElementById('draggable');
 const chaser = document.getElementById('chaser');
-const wall = document.getElementById('wall');
-const leftWall = document.getElementById('left-wall');
-const rightWall = document.getElementById('right-wall');
+const middleWall = document.getElementById('middle-wall');
+const leftLedge = document.getElementById('left-ledge');
+const rightLedge = document.getElementById('right-ledge');
 
 let posX = window.innerWidth / 2;
 let posY = window.innerHeight / 2;
@@ -54,7 +54,7 @@ document.addEventListener('mouseup', () => {
     draggable.style.cursor = 'grab';
 });
 
-// Function to detect collisions with the walls
+// Function to detect collisions with the ledges
 function checkCollision(objectX, objectY, objectWidth, objectHeight, wallX, wallY, wallWidth, wallHeight) {
     return (
         objectX < wallX + wallWidth &&
@@ -85,45 +85,45 @@ function applyPhysics() {
             if (posY + draggable.offsetHeight > window.innerHeight) posY = window.innerHeight - draggable.offsetHeight;
         }
 
-        // Check for collision with the top wall
-        if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, wall.offsetLeft, wall.offsetTop, wall.offsetWidth, wall.offsetHeight)) {
-            if (posX < wall.offsetLeft) {
-                posX = wall.offsetLeft - draggable.offsetWidth;
-            } else if (posX + draggable.offsetWidth > wall.offsetLeft + wall.offsetWidth) {
-                posX = wall.offsetLeft + wall.offsetWidth;
+        // Check for collision with the middle wall
+        if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, middleWall.offsetLeft, middleWall.offsetTop, middleWall.offsetWidth, middleWall.offsetHeight)) {
+            if (posX < middleWall.offsetLeft) {
+                posX = middleWall.offsetLeft - draggable.offsetWidth;
+            } else if (posX + draggable.offsetWidth > middleWall.offsetLeft + middleWall.offsetWidth) {
+                posX = middleWall.offsetLeft + middleWall.offsetWidth;
             }
-            if (posY < wall.offsetTop) {
-                posY = wall.offsetTop - draggable.offsetHeight;
-            } else if (posY + draggable.offsetHeight > wall.offsetTop + wall.offsetHeight) {
-                posY = wall.offsetTop + wall.offsetHeight;
-            }
-        }
-
-        // Check for collision with the left wall
-        if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, leftWall.offsetLeft, leftWall.offsetTop, leftWall.offsetWidth, leftWall.offsetHeight)) {
-            if (posX < leftWall.offsetLeft) {
-                posX = leftWall.offsetLeft - draggable.offsetWidth;
-            } else if (posX + draggable.offsetWidth > leftWall.offsetLeft + leftWall.offsetWidth) {
-                posX = leftWall.offsetLeft + leftWall.offsetWidth;
-            }
-            if (posY < leftWall.offsetTop) {
-                posY = leftWall.offsetTop - draggable.offsetHeight;
-            } else if (posY + draggable.offsetHeight > leftWall.offsetTop + leftWall.offsetHeight) {
-                posY = leftWall.offsetTop + leftWall.offsetHeight;
+            if (posY < middleWall.offsetTop) {
+                posY = middleWall.offsetTop - draggable.offsetHeight;
+            } else if (posY + draggable.offsetHeight > middleWall.offsetTop + middleWall.offsetHeight) {
+                posY = middleWall.offsetTop + middleWall.offsetHeight;
             }
         }
 
-        // Check for collision with the right wall
-        if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, rightWall.offsetLeft, rightWall.offsetTop, rightWall.offsetWidth, rightWall.offsetHeight)) {
-            if (posX < rightWall.offsetLeft) {
-                posX = rightWall.offsetLeft - draggable.offsetWidth;
-            } else if (posX + draggable.offsetWidth > rightWall.offsetLeft + rightWall.offsetWidth) {
-                posX = rightWall.offsetLeft + rightWall.offsetWidth;
+        // Check for collision with the left ledge
+        if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, leftLedge.offsetLeft, leftLedge.offsetTop, leftLedge.offsetWidth, leftLedge.offsetHeight)) {
+            if (posX < leftLedge.offsetLeft) {
+                posX = leftLedge.offsetLeft - draggable.offsetWidth;
+            } else if (posX + draggable.offsetWidth > leftLedge.offsetLeft + leftLedge.offsetWidth) {
+                posX = leftLedge.offsetLeft + leftLedge.offsetWidth;
             }
-            if (posY < rightWall.offsetTop) {
-                posY = rightWall.offsetTop - draggable.offsetHeight;
-            } else if (posY + draggable.offsetHeight > rightWall.offsetTop + rightWall.offsetHeight) {
-                posY = rightWall.offsetTop + rightWall.offsetHeight;
+            if (posY < leftLedge.offsetTop) {
+                posY = leftLedge.offsetTop - draggable.offsetHeight;
+            } else if (posY + draggable.offsetHeight > leftLedge.offsetTop + leftLedge.offsetHeight) {
+                posY = leftLedge.offsetTop + leftLedge.offsetHeight;
+            }
+        }
+
+        // Check for collision with the right ledge
+        if (checkCollision(posX, posY, draggable.offsetWidth, draggable.offsetHeight, rightLedge.offsetLeft, rightLedge.offsetTop, rightLedge.offsetWidth, rightLedge.offsetHeight)) {
+            if (posX < rightLedge.offsetLeft) {
+                posX = rightLedge.offsetLeft - draggable.offsetWidth;
+            } else if (posX + draggable.offsetWidth > rightLedge.offsetLeft + rightLedge.offsetWidth) {
+                posX = rightLedge.offsetLeft + rightLedge.offsetWidth;
+            }
+            if (posY < rightLedge.offsetTop) {
+                posY = rightLedge.offsetTop - draggable.offsetHeight;
+            } else if (posY + draggable.offsetHeight > rightLedge.offsetTop + rightLedge.offsetHeight) {
+                posY = rightLedge.offsetTop + rightLedge.offsetHeight;
             }
         }
 
@@ -151,45 +151,45 @@ function applyPhysics() {
         chaserPosX += chaserVelocityX;
         chaserPosY += chaserVelocityY;
 
-        // Check for collision with the top wall
-        if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, wall.offsetLeft, wall.offsetTop, wall.offsetWidth, wall.offsetHeight)) {
-            if (chaserPosX < wall.offsetLeft) {
-                chaserPosX = wall.offsetLeft - chaser.offsetWidth;
-            } else if (chaserPosX + chaser.offsetWidth > wall.offsetLeft + wall.offsetWidth) {
-                chaserPosX = wall.offsetLeft + wall.offsetWidth;
+        // Check for collision with the middle wall
+        if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, middleWall.offsetLeft, middleWall.offsetTop, middleWall.offsetWidth, middleWall.offsetHeight)) {
+            if (chaserPosX < middleWall.offsetLeft) {
+                chaserPosX = middleWall.offsetLeft - chaser.offsetWidth;
+            } else if (chaserPosX + chaser.offsetWidth > middleWall.offsetLeft + middleWall.offsetWidth) {
+                chaserPosX = middleWall.offsetLeft + middleWall.offsetWidth;
             }
-            if (chaserPosY < wall.offsetTop) {
-                chaserPosY = wall.offsetTop - chaser.offsetHeight;
-            } else if (chaserPosY + chaser.offsetHeight > wall.offsetTop + wall.offsetHeight) {
-                chaserPosY = wall.offsetTop + wall.offsetHeight;
-            }
-        }
-
-        // Check for collision with the left wall
-        if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, leftWall.offsetLeft, leftWall.offsetTop, leftWall.offsetWidth, leftWall.offsetHeight)) {
-            if (chaserPosX < leftWall.offsetLeft) {
-                chaserPosX = leftWall.offsetLeft - chaser.offsetWidth;
-            } else if (chaserPosX + chaser.offsetWidth > leftWall.offsetLeft + leftWall.offsetWidth) {
-                chaserPosX = leftWall.offsetLeft + leftWall.offsetWidth;
-            }
-            if (chaserPosY < leftWall.offsetTop) {
-                chaserPosY = leftWall.offsetTop - chaser.offsetHeight;
-            } else if (chaserPosY + chaser.offsetHeight > leftWall.offsetTop + leftWall.offsetHeight) {
-                chaserPosY = leftWall.offsetTop + leftWall.offsetHeight;
+            if (chaserPosY < middleWall.offsetTop) {
+                chaserPosY = middleWall.offsetTop - chaser.offsetHeight;
+            } else if (chaserPosY + chaser.offsetHeight > middleWall.offsetTop + middleWall.offsetHeight) {
+                chaserPosY = middleWall.offsetTop + middleWall.offsetHeight;
             }
         }
 
-        // Check for collision with the right wall
-        if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, rightWall.offsetLeft, rightWall.offsetTop, rightWall.offsetWidth, rightWall.offsetHeight)) {
-            if (chaserPosX < rightWall.offsetLeft) {
-                chaserPosX = rightWall.offsetLeft - chaser.offsetWidth;
-            } else if (chaserPosX + chaser.offsetWidth > rightWall.offsetLeft + rightWall.offsetWidth) {
-                chaserPosX = rightWall.offsetLeft + rightWall.offsetWidth;
+        // Check for collision with the left ledge
+        if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, leftLedge.offsetLeft, leftLedge.offsetTop, leftLedge.offsetWidth, leftLedge.offsetHeight)) {
+            if (chaserPosX < leftLedge.offsetLeft) {
+                chaserPosX = leftLedge.offsetLeft - chaser.offsetWidth;
+            } else if (chaserPosX + chaser.offsetWidth > leftLedge.offsetLeft + leftLedge.offsetWidth) {
+                chaserPosX = leftLedge.offsetLeft + leftLedge.offsetWidth;
             }
-            if (chaserPosY < rightWall.offsetTop) {
-                chaserPosY = rightWall.offsetTop - chaser.offsetHeight;
-            } else if (chaserPosY + chaser.offsetHeight > rightWall.offsetTop + rightWall.offsetHeight) {
-                chaserPosY = rightWall.offsetTop + rightWall.offsetHeight;
+            if (chaserPosY < leftLedge.offsetTop) {
+                chaserPosY = leftLedge.offsetTop - chaser.offsetHeight;
+            } else if (chaserPosY + chaser.offsetHeight > leftLedge.offsetTop + leftLedge.offsetHeight) {
+                chaserPosY = leftLedge.offsetTop + leftLedge.offsetHeight;
+            }
+        }
+
+        // Check for collision with the right ledge
+        if (checkCollision(chaserPosX, chaserPosY, chaser.offsetWidth, chaser.offsetHeight, rightLedge.offsetLeft, rightLedge.offsetTop, rightLedge.offsetWidth, rightLedge.offsetHeight)) {
+            if (chaserPosX < rightLedge.offsetLeft) {
+                chaserPosX = rightLedge.offsetLeft - chaser.offsetWidth;
+            } else if (chaserPosX + chaser.offsetWidth > rightLedge.offsetLeft + rightLedge.offsetWidth) {
+                chaserPosX = rightLedge.offsetLeft + rightLedge.offsetWidth;
+            }
+            if (chaserPosY < rightLedge.offsetTop) {
+                chaserPosY = rightLedge.offsetTop - chaser.offsetHeight;
+            } else if (chaserPosY + chaser.offsetHeight > rightLedge.offsetTop + rightLedge.offsetHeight) {
+                chaserPosY = rightLedge.offsetTop + rightLedge.offsetHeight;
             }
         }
 
@@ -202,4 +202,3 @@ function applyPhysics() {
 }
 
 applyPhysics(); // Start the physics loop
-
