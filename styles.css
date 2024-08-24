@@ -111,15 +111,15 @@
     display: flex;
     justify-content: center;
     align-items: flex-end; /* Align the doors to the bottom */
-    gap: 300px; /* Increase the space between the doors */
+    gap: 600px; /* Increase the space between the doors */
     width: 100%; /* Make sure the container spans the full width */
     position: absolute; /* Position the container at the bottom */
-    bottom: 20px; /* Space between the doors and the bottom of the screen */
+    bottom: 300px; /* Space between the doors and the bottom of the screen */
 }
 
 .door {
-    width: 150px;
-    height: 300px;
+    width: 300px;
+    height: 600px;
     background-image: url('door.png'); /* Set the background image */
     background-size: cover; /* Ensure the image covers the entire door */
     background-position: center; /* Center the background image */
