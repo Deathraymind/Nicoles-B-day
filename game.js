@@ -132,8 +132,8 @@ function applyPhysics() {
         velocityY *= friction;
 
         // Additional velocity reduction
-        velocityX *= 0.9; // Further reduce horizontal velocity
-        velocityY *= 0.9; // Further reduce vertical velocity
+        velocityX *= 1; // Further reduce horizontal velocity
+        velocityY *= 0.7; // Further reduce vertical velocity
 
         // Update the position of the ball of yarn
         draggable.style.left = `${posX}px`;
