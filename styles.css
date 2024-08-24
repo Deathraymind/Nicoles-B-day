@@ -156,7 +156,7 @@
 .birthday {
     width: 200px;
     height: 500px;
-    background-image: url('door.png'); /* Set the background image */
+    background-image: url('birthday.png'); /* Set the background image */
     background-size: cover; /* Ensure the image covers the entire door */
     background-position: center; /* Center the background image */
     color: white;
