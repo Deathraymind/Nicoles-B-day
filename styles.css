@@ -106,6 +106,12 @@
 
 
 
+.door-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between the doors */
+}
+
 .door {
     width: 150px;
     height: 300px;
@@ -116,7 +122,6 @@
     align-items: center;
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    margin: 20px;
     text-align: center;
     font-size: 24px;
     cursor: pointer;
@@ -127,4 +132,3 @@
     transform: translateY(-5px);
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
 }
-
